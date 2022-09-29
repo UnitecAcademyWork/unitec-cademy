@@ -1,0 +1,123 @@
+<h2 class="title-2">Dados do curso</h2>
+<mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="instrutorForm">
+    <form [formGroup]="instrutorForm">
+      <ng-template matStepLabel>Passo</ng-template>
+      <div class="form__group">
+        <div class="w-47">
+          <label class="form__label" for="nome">Titulo do curso</label>
+          <div class="form__input--container">
+            <input class="form__input" type="text" formControlName="nomeCurso" id="nome" placeholder="nome" required>
+            <div class="error" *ngIf="f.nomeCurso.errors?.required && f.nomeCurso.touched">
+              Introduza nome do curso!
+            </div>
+          </div>
+        </div>
+        <div class="w-47">
+          <label class="form__label" for="publico_alvo">Publico alvo</label>
+          <div class="form__input--container">
+            <input class="form__input" type="text" formControlName="publico_alvo" id="publico_alvo"
+              placeholder="publico alvo">
+          </div>
+        </div>
+      </div>
+
+      <div class="form__group">
+        <div class="w-47">
+          <label class="form__label" for="duracao">Duração</label>
+          <div class="form__input--container">
+            <select formControlName="duracao" class="form__input" required>
+              <option>
+                1 a 3 Semanas
+              </option>
+              <option>
+                3 a 4 Semanas
+              </option>
+              <option>
+                1 a 3 meses
+              </option>
+              <option>
+                4 a 6 meses
+              </option>
+              <option>
+                + 6 meses
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="w-47">
+          <label class="form__label" for="categoria">Categoria do curso</label>
+          <div class="form__input--container">
+            <select formControlName="categoria" class="form__input" required>
+              <option>
+                Administração
+              </option>
+              <option>
+                Saúde
+              </option>
+              <option>
+                Comunicação
+              </option>
+              <option>
+                Informática
+              </option>
+              <option>
+                Construção
+              </option>
+              <option>
+                Electrônica
+              </option>
+              <option>
+                Outra
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+
+      <div [ngClass]="{'d-none': !showOther}">
+        <label class="form__label" for="objectivo">Outra categoria</label>
+        <div class="form__input--container">
+          <input class="form__input" formControlName="outra" placeholder="Categoria do curso">
+        </div>
+      </div>
+
+      <div>
+        <button class="btn btn--main" matStepperNext>proximo</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="dadosCurso">
+    <form [formGroup]="dadosCurso" (ngSubmit)="onSubmit()">
+      <ng-template matStepLabel>Passo</ng-template>
+      <label class="form__label" for="objectivo">Objectivo do curso</label>
+      <div class="form__input--container">
+        <textarea class="form__input" formControlName="objectivo" placeholder="Objectivo do curso"></textarea>
+      </div>
+
+      <label class="form__label" for="objectivo">Requisitos do curso</label>
+      <div class="form__input--container">
+        <textarea class="form__input" formControlName="requisitos" placeholder="Requisitos do curso"></textarea>
+      </div>
+      <label class="form__label" for="objectivo">Descrição do curso</label>
+      <div class="form__input--container">
+        <textarea class="form__input" formControlName="descricao" placeholder="descrição do curso"></textarea>
+      </div>
+      <div>
+        <button class="btn btn--white" matStepperPrevious>voltar</button>
+        <button class="btn btn--main">salvar</button>
+
+        <button class="btn btn--main" type="submit" [disabled]="submitted">
+          <ng-container *ngIf="!submitted; else showLoading">
+            próximo
+          </ng-container>
+          <ng-template #showLoading>
+            <img src="/assets/img/pulse.gif" alt="">
+          </ng-template>
+        </button>
+      </div>
+    </form>
+  </mat-step>
+</mat-stepper>

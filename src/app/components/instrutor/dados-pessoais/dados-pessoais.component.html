@@ -1,0 +1,71 @@
+<form class="form" [formGroup]="instrutorForm" (ngSubmit)="onSubmit()">
+
+  <div class="form__group">
+    <div class="w-47">
+      <label class="form__label" for="nome">Nome</label>
+      <div class="form__input--container">
+        <input class="form__input" type="text" formControlName="nome" id="nome" placeholder="nome do instrutor">
+        <div class="error" *ngIf="f.nome.errors?.required && f.nome.touched">
+          Introduza nome!
+        </div>
+      </div>
+    </div>
+    <div class="w-47">
+      <label class="form__label" for="apelido">Apelido</label>
+      <div class="form__input--container">
+        <input class="form__input" type="text" formControlName="apelido" id="apelido" placeholder="apelido">
+        <div class="error" *ngIf="f.apelido.errors?.required && f.apelido.touched">
+          Introduza apelido!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <label class="form__label" for="email">email</label>
+  <div class="form__input--container">
+    <input type="email" class="form__input" formControlName="email" placeholder="email">
+    <div class="error" *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)">
+      Email invalido!
+    </div>
+  </div>
+
+  <label class="form__label" for="contacto">contacto</label>
+  <div class="form__input--container">
+    <input type="tel" class="form__input" formControlName="contacto" placeholder="contacto">
+    <div class="error" *ngIf="f.contacto.errors?.required && f.contacto.touched">
+      Introduza contacto!
+    </div>
+  </div>
+
+  <div class="form__group">
+    <div class="w-47">
+      <label class="form__label" for="local">local</label>
+      <div class="form__input--container">
+        <input class="form__input" type="text" formControlName="local" id="local" placeholder="local">
+        <div class="error" *ngIf="f.local.errors?.required && f.local.touched">
+          Introduza local!
+        </div>
+      </div>
+    </div>
+    <div class="w-47">
+      <!-- <label class="form__label" for="nome">Currículo</label> -->
+      <button class="btn btn--upload btn--upload-profile" [disabled]='fileUpload' type="button"
+        (click)="fileInput.click()">
+        <span>{{fileName}}</span>
+        <img src="/assets/img/upload.png" alt="Upload">
+        <input #fileInput (change)="onUpload($event)" type="file" accept="application/msword, application/pdf,"
+          style="display: none;">
+      </button>
+    </div>
+  </div>
+  <br>
+
+  <button class="btn btn--main btn--hight" type="submit" [disabled]="submitted || !instrutorForm.valid">
+    <ng-container *ngIf="!submitted; else showLoading">
+      próximo
+    </ng-container>
+    <ng-template #showLoading>
+      <img src="/assets/img/pulse.gif" alt="">
+    </ng-template>
+  </button>
+</form>

@@ -1,0 +1,46 @@
+.business__header--img {
+  left: 40rem;
+
+  @media screen and (max-width: 75em) {
+    left: 0;
+    margin-left: auto;
+  }
+
+  @media screen and (max-width: 37.5em) {
+    margin-left: unset;
+  }
+}
+
+.business__header--text {
+  width: 50%;
+  align-self: center;
+
+  @media screen and (max-width: 37.5em) {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.business__body--text {
+  @media (min-width: 56.25em) {
+    margin-top: 0;
+  }
+}
+
+.business__body--content {
+  width: 100%;
+}
+
+.business__header--img img {
+  width: 20rem;
+  display: block;
+  margin: 0 auto;
+}
+
+.form__input {
+  padding-left: 1rem !important;
+}
+
+.business__body {
+  flex-direction: column;
+}

@@ -1,0 +1,83 @@
+<div class="home__content register v8">
+  <div class="register__sign-up">
+    <h2 class="title-1">Fale <span>connosco</span></h2>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="form">
+      <label class="form__label" for="assunto">Assunto</label>
+      <div class="form__input--container">
+        <img class="form__input--img" src="/assets/img/user-2.svg" alt="Letter">
+        <input class="form__input" type="text" formControlName="assunto" id="assunto" placeholder="insira o assunto">
+        <div class="error" *ngIf="f.assunto.errors?.required && f.assunto.touched">campo obrigatório</div>
+      </div>
+
+      <div class="form__group">
+        <div class="w-47">
+          <label class="form__label" for="email">Endereço de e-mail</label>
+          <div class="form__input--container">
+            <img class="form__input--img" src="/assets/img/letter.svg" alt="Letter">
+            <input class="form__input" type="email" formControlName="emailrementente" id="email"
+              placeholder="insira o seu endereço de e-mail">
+            <div class="error"
+              *ngIf="f.emailrementente.invalid && (f.emailrementente.dirty || f.emailrementente.touched)">
+              Email invalido!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <label class="form__label" for="message">Mensagem</label>
+      <div class="form__input--container">
+        <textarea class="form__textarea" formControlName="mensagem" id="message" placeholder="mensagem"></textarea>
+        <div class="error" *ngIf="f.mensagem.errors?.required && f.mensagem.touched">campo obrigatório</div>
+      </div>
+
+      <button class="btn btn--main btn--hight" [disabled]="submitted">
+        <ng-container *ngIf="!submitted; else showLoading">
+          Enviar
+        </ng-container>
+        <ng-template #showLoading>
+          <img src="/assets/img/pulse.gif" alt="">
+        </ng-template>
+      </button>
+    </form>
+  </div>
+
+  <div class="register__welcome">
+    <h2 class="title-2">Nossos contactos</h2>
+    <p class="paragraph mt-2">Estamos aqui para ajudá-lo, fale com a nossa equipa. Digite o endereço de e-mail e escreva
+      a sua preocupação que a nossa equipa irá entrar em contacto logo que possível</p>
+    <ul class="contact__list">
+      <li class="contact__item">
+        <a target="_blank" href="https://goo.gl/maps/9PD2AkQDWF1saAv69">
+          <img src="/assets/img/marker.svg" alt="marker">
+          <p>
+            Av. Salvador Allende Nr. 60 Maputo, 1000 <br>
+            Av. Filipe Samuel Magaia Nr.5552, Maputo
+          </p>
+        </a>
+      </li>
+      <li class="contact__item">
+        <a href="mailto:unitec.ac.mz">
+          <img src="/assets/img/letter.svg" alt="marker">
+          <p>
+            info@unitec.ac.mz
+          </p>
+        </a>
+      </li>
+      <li class="contact__item">
+        <a href="tel:+258840111248">
+          <img src="/assets/img/phone2.svg" alt="marker">
+          <p>
+            840111248 <br>
+            840555328 <br>
+            868228878
+          </p>
+        </a>
+      </li>
+      <li class="cantact__item">
+        <a href="https://wa.me/258841088884" target="_blank" class="btn btn--whatsapp mt-2 paragraph">Fale connosco <img
+            src="/assets/img/whatsapp.png" alt=""></a>
+      </li>
+    </ul>
+    <img class="contact__svg" src="/assets/img/sign-up.svg" alt="sign up image">
+  </div>
+</div>

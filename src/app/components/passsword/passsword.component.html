@@ -1,0 +1,44 @@
+<div class="home__content v8">
+  <div class="login">
+    <h2 class="title-1 text-center">Defina a sua nova senha</h2>
+    <p class="paragrapth text-center">introduza a sua nova senha!</p>
+    <form [formGroup]="novaSenha" (ngSubmit)="onSubmit()" class="form">
+      <!-- <div class="error" [ngClass]="{'d-none': error === false}">
+        <p class="paragraph text-center">Email ou password Invalido!</p>
+      </div> -->
+      <div class="error" [ngClass]="{'d-none': expired === false}">
+        <p class="paragraph text-center">Link já expirou, clique <a class="linked" routerLink='/recuperar'>aqui</a> para
+          obter novo link de recuperação!</p>
+      </div>
+      <div class="form__input--container">
+        <img class="form__input--img" src="/assets/img/lock-2.svg" alt="Lock">
+        <input class="form__input" type="password" formControlName="senha" id="password"
+          placeholder="insira nova senha">
+        <div *ngIf="f.senha.touched && f.senha.errors">
+          <div class="error" *ngIf="f.senha.errors.required">Introduza a senha</div>
+          <div class="error" *ngIf="f.senha.errors.minlength">Senha precisa ter no mínimo 6 caracteres</div>
+        </div>
+      </div>
+
+      <div class="form__input--container">
+        <img class="form__input--img" src="/assets/img/lock-2.svg" alt="Lock">
+        <input class="form__input" type="password" formControlName="confirm" placeholder="confirme a nova senha">
+        <div *ngIf="f.senha.touched && f.confirm.errors">
+          <div class="error" *ngIf="f.confirm.errors.required">Introduza a senha</div>
+          <div class="error" *ngIf="f.confirm.errors.mustMatch">as senhas não coincidem </div>
+        </div>
+      </div>
+
+
+      <button class="btn btn--main btn--hight" [disabled]="submitted || expired">
+        <ng-container *ngIf="!submitted; else showLoading">
+          Guardar nova senha
+        </ng-container>
+        <ng-template #showLoading>
+          <img src="/assets/img/pulse.gif" alt="">
+        </ng-template>
+      </button>
+      <p class="paragraph">Não registado ainda? <span routerLink='/registo'>Crie a sua conta aqui</span></p>
+    </form>
+  </div>
+</div>

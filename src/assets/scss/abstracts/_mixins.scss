@@ -1,0 +1,32 @@
+﻿//media query manager
+// 0-600px; phone
+// 600-900px tablet portrait
+// 900-1200px tablet landscape
+// 1200-1800 normal web style
+// 1800- Big desktop
+@mixin respond ($breakpoint) {
+    @if $breakpoint==phone {
+        @media (max-width: 37.5em) {
+            //600px
+            @content;
+        }
+    }
+
+    @if $breakpoint==tab-land {
+        @media (max-width: 75em) {
+            @content;
+        }
+    }
+
+    @if $breakpoint==tab-port {
+        @media (max-width: 56.25em) {
+            @content;
+        }
+    }
+
+    @if $breakpoint==big-desktop {
+        @media (min-width: 112.5em) {
+            @content;
+        }
+    }
+}

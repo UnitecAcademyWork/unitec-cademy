@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<router-outlet></router-outlet>
+<div *ngFor="let item of ex">
+  <div *ngFor="let itm of item.ProductImages">
+    <img src="{{itm.url}}" alt="">
+  </div>
+</div>
+<form class="contact" [formGroup]="form" #contacto (ngSubmit)="onSubmit()">
+  <div class="quickChat" #formRef>
+    <img class="quickChat__close" (click)="removeForm()" src="assets/img/close.png" alt="close">
+    <div class="quickChart__header">
+      <h2 class="title-2">Nós entraremos em contacto</h2>
+    </div>
+    <label class="form__label" for="tel">Introduza o seu contacto</label>
+    <div class="form__input--container">
+      <img class="form__input--img" src="/assets/img/phone2.svg" alt="Letter">
+      <input class="form__input" id="tel" formControlName="contact"
+        [ngClass]="{'is-invalid': submitted && f.contact.errors}" type="tel" placeholder="8XXXXXXXX">
+    </div>
+    <label for="assunto">Assunto</label>
+    <div class="form__input--container">
+      <img class="form__input--img" src="/assets/img/letter.svg" alt="Letter">
+      <textarea class="form__input" formControlName="message" placeholder="Escreva o assunto aqui!..."
+        [ngClass]="{'is-invalid': submitted && f.message.errors }"></textarea>
+    </div>
+    <button class="btn btn--main" [disabled]="loading">
+      <span *ngIf="loading">Enviando....</span>
+      <span *ngIf="!loading">Enviar</span>
+    </button>
+  </div>
+  <img class="fale" (click)="showForm()" src="assets/img/fale.png">
+</form>
+<app-footer></app-footer>

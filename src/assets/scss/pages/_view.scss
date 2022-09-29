@@ -1,0 +1,188 @@
+.view {
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 2rem;
+  grid-template-rows: auto 14rem 27rem max-content;
+
+  @include respond(tab-land) {
+    margin-top: 8rem;
+  }
+
+  @include respond(tab-port) {
+    grid-template-rows: auto auto auto 30rem;
+    margin-top: 10rem;
+  }
+
+  @include respond(phone) {
+    margin-top: 13rem;
+  }
+
+  &__title {
+    grid-row: 1 / 2;
+    grid-column: 1 / 7;
+
+    @include respond(tab-port) {
+      grid-column: 1 / -1;
+    }
+
+    h2 {
+      text-transform: uppercase;
+      margin-bottom: .3rem;
+    }
+
+    & .title-sub {
+      font-size: 1.3rem;
+
+      span {
+        color: $color-dark;
+      }
+    }
+  }
+
+  &__img {
+    grid-column: 1 / 7;
+    grid-row: 2 / 4;
+    width: 100%;
+    max-height: 65vh;
+    object-fit: cover;
+
+    @include respond(tab-port) {
+      grid-column: 1 / -1;
+      grid-row: 3 / 4;
+    }
+  }
+
+  &__subscribe {
+    grid-row: 1 / 2;
+    grid-column: 7 / -1;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @include respond(tab-land) {
+      align-items: center;
+    }
+
+    @include respond(tab-port) {
+      grid-column: 1 / -1;
+      grid-row: 2 / 3;
+    }
+  }
+
+  &__price {
+    display: flex;
+
+    p {
+      margin-top: 3.3rem;
+      margin-right: 1rem;
+      font-size: 1.5rem;
+    }
+
+    &--previews {
+      font-size: 1.6rem;
+      text-decoration: line-through;
+    }
+
+    & .title-1 {
+      margin-bottom: 0;
+
+      @include respond(phone) {
+        font-size: 2.7rem;
+      }
+    }
+  }
+
+  &__about {
+    grid-row: 2 / 3;
+    grid-column: 7 / -1;
+    padding-bottom: 2rem;
+    border-bottom: .1rem solid $color-muted;
+    overflow: auto;
+
+    @include respond(tab-port) {
+      grid-row: 4 / 5;
+      grid-column: 1 / -1;
+
+      & .paragraph {
+        font-size: 1.7rem;
+      }
+    }
+  }
+
+  &__program {
+    grid-row: 3 / 4;
+    grid-column: 7 / -1;
+    overflow: auto;
+    cursor: pointer;
+
+    @include respond(tab-port) {
+      grid-row: 7 / 8;
+      grid-column: 1 / -1;
+    }
+
+    &--item {
+      margin: 1.5rem 0;
+    }
+
+    &--lesson {
+      display: flex;
+      font-size: 1.3rem;
+      padding: 0 .5rem;
+    }
+
+    img {
+      margin-right: 2rem;
+    }
+
+    &--time {
+      margin-left: auto;
+    }
+  }
+
+  &__list {
+    grid-row: 4 / 5;
+    grid-column: 1 / 7;
+    display: flex;
+    padding-bottom: 1rem;
+    border-bottom: .1rem solid rgba($color-muted, .3);
+
+    @include respond(tab-port) {
+      grid-row: 5 / 6;
+      grid-column: 1 / -1;
+    }
+
+    &--content {
+      grid-row: 5 / 6;
+      grid-column: 1 / 7;
+
+      @include respond(tab-port) {
+        grid-row: 6 / 7;
+        grid-column: 1 / -1;
+      }
+    }
+  }
+
+  &__item {
+    font-size: 1.3rem;
+    transition: all .2s;
+
+    &:not(:first-child) {
+      margin: 0 2rem;
+    }
+
+    &.active {
+      font-weight: bold;
+      border-bottom: .2rem solid $color-dark;
+    }
+  }
+
+  &__link {
+    cursor: pointer;
+    transition: all .2s;
+    backface-visibility: hidden;
+    padding-bottom: .9rem;
+    color: $color-dark;
+  }
+}

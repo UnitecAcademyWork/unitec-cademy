@@ -1,0 +1,96 @@
+<div class="home__content register v12">
+  <div class="register__sign-up">
+    <h2 class="title-1">Inscreva-se e comece <span>a aprender!</span></h2>
+    <form class="form" [formGroup]='registerForm' (ngSubmit)="onRegister($event)">
+      <div class="error text-center mb-2">
+        <p *ngFor="let error of errors">{{error}}</p>
+      </div>
+      <div class="form__group">
+        <div class="w-47">
+          <label class="form__label" for="username">Primeiro nome</label>
+          <div class="form__input--container">
+            <img class="form__input--img" src="/assets/img/user-2.svg" alt="letter">
+            <input class="form__input" type="text" formControlName="nome" id="username"
+              placeholder="insira o seu primeiro nome">
+            <div class="error" *ngIf="(f.nome.errors?.required && f.nome.touched)">
+              Nome invalido!
+            </div>
+          </div>
+        </div>
+
+        <div class="w-47">
+          <label class="form__label" for="lastname">Ultimo nome</label>
+          <div class="form__input--container">
+            <img class="form__input--img" src="/assets/img/user-2.svg" alt="letter">
+            <input class="form__input" type="text" formControlName="apelido" id="lastname"
+              placeholder="insira o seu ultimo nome">
+            <div class="error" *ngIf="(f.apelido.errors?.required && f.apelido.touched)">
+              Apelido invalido!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form__group">
+        <div class="w-47">
+          <label class="form__label" for="telefone">Telefone</label>
+          <div class="form__input--container">
+            <img class="form__input--img" src="/assets/img/phone2.svg" alt="Letter">
+            <input class="form__input" [pattern]="phone" type="tel" formControlName="contacto" maxlength="9"
+              id="telefone" placeholder="insira o seu numero de telefone">
+            <div class="error"
+              *ngIf="(f.contacto.errors?.required && f.contacto.touched || (f.contacto.value.length <= 8 && f.contacto.dirty))">
+              Contacto invalido!
+            </div>
+            <div class="error" *ngIf="f.contacto.errors?.pattern && f.contacto.value.length === 9">
+              Lamentamos, apenas contactos da Vodacom, mCel e movitel permitos!
+            </div>
+          </div>
+        </div>
+        <div class="w-47" [ngClass]="{'d-none': !showInvite}">
+          <label class="form__label" for="convite">Código de convite</label>
+          <div class="form__input--container">
+            <img class="form__input--img" src="/assets/img/invite.png">
+            <input class="form__input" type="number" formControlName="invite" id="convite"
+              placeholder="insira o código de convite">
+          </div>
+        </div>
+      </div>
+      <label class="form__label" for="email">Endereço de e-mail</label>
+      <div class="form__input--container">
+        <img class="form__input--img" src="/assets/img/letter.svg" alt="Letter">
+        <input class="form__input" type="email" formControlName="email" id="email"
+          placeholder="insira o seu endereço de e-mail">
+        <div class="error" *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)">
+          Email invalido!
+        </div>
+      </div>
+      <!--
+      <label class="form__label" for="email">Senha</label>
+      <div class="form__input--container">
+        <img class="form__input--img" src="/assets/img/lock-2.svg" alt="Lock">
+        <input class="form__input" type="email" formControlName="email" id="email" placeholder="insira a sua senha">
+      </div> -->
+
+      <div class="form__details">
+        <p class="paragraph">Ao se inscrever, você concorda com nossos <span>Termos de uso</span> e <span>Política de
+            Privacidade</span></p>
+      </div>
+      <button class="btn btn--main btn--hight" type="submit" [disabled]="loading || !registerForm.valid">
+        <ng-container *ngIf="!loading; else showLoading">
+          Registar
+        </ng-container>
+        <ng-template #showLoading>
+          <img src="/assets/img/pulse.gif" alt="">
+        </ng-template>
+      </button>
+      <p class="paragraph">Você é um membro? <span class="login" routerLink="/login">Conecte-se agora</span></p>
+    </form>
+  </div>
+
+  <div class="register__welcome">
+    <p class="paragraph">O aprendizado é algo tão preciso que até quando ensinamos algo a alguém estamos aprendendo
+      coisas novas. Somente quem sabe ouvir, para aprender, tem recurso para ensinar</p>
+    <img src="/assets/img/sign-up.svg" alt="sign up image">
+  </div>
+</div>

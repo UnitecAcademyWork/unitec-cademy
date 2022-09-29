@@ -1,0 +1,38 @@
+.partners {
+  // display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  // grid-gap: 4rem;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 7rem;
+
+  @include respond(phone) {
+    // grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  }
+
+  img {
+    height: 4rem;
+    filter: grayscale(100%);
+    margin: 1rem 2rem;
+    opacity: .7;
+
+    @include respond(phone) {
+      // width: 100%;
+    }
+
+    &:nth-child(2) {
+      height: 5rem;
+    }
+
+    &:nth-child(3),
+    &:nth-child(5) {
+      height: 3rem;
+    }
+
+    &:nth-child(9) {
+      height: 5rem;
+    }
+  }
+}

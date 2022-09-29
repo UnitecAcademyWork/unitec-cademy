@@ -1,0 +1,90 @@
+.payment {
+
+  &__card {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: .4rem;
+  }
+
+  &__bank {
+    &--info {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 6rem;
+        margin-right: 2rem;
+      }
+    }
+
+    &--name {
+      h2 {
+        font-size: 1.6rem;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__tag {
+    display: flex;
+    margin: 2rem 0;
+    padding-bottom: 1rem;
+    border-bottom: .1rem solid rgba($color-muted, .3);
+
+    p.paragraph {
+      align-self: flex-end;
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin: unset !important;
+    }
+
+    img {
+      margin: unset;
+      height: 6rem;
+      width: auto;
+      margin-right: 2rem;
+    }
+
+    .view__price {
+      margin-left: auto;
+    }
+  }
+
+  &__resumo {
+    border-bottom: .1rem solid rgba($color-muted, .3);
+    padding-bottom: 1rem;
+
+    h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    &--list {
+      display: flex;
+      justify-content: space-between;
+      margin: 2rem 0;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+
+    .bold {
+      font-weight: bold;
+    }
+
+    .paragraph-bold {
+      font-weight: bold;
+      font-size: 1.6rem;
+    }
+  }
+
+  input {
+    padding-left: 1rem;
+  }
+
+  .btn {
+    margin-left: 0;
+  }
+}

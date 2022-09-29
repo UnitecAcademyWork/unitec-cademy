@@ -1,0 +1,263 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+
+  @media (max-width: 56.25em) {
+    flex-direction: column-reverse;
+    margin-top: 13rem;
+  }
+}
+
+h1 {
+  line-height: 4rem;
+  color: #71777a;
+}
+
+.form {
+  padding: 2rem;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+
+  @media (max-width: 56.25em) {
+    width: 100%;
+  }
+
+  .form__content {
+    margin-top: 2rem;
+    justify-self: center;
+    width: 90%;
+
+    .button {
+      border: 0.1rem solid #1797d1;
+      border-radius: 0.4rem;
+      background-color: #1797d1;
+      color: #fff;
+      box-shadow: 0 0.2rem 0.3rem 0.2rem #1797d11a;
+      padding: 1rem 4rem;
+      width: 100%;
+      font-size: 1rem;
+      letter-spacing: 0.1rem;
+      cursor: pointer;
+    }
+    .file-input {
+      display: none;
+    }
+
+    .file-upload {
+      margin-left: 3rem;
+    }
+    .upload-btn {
+      background-color: #1797d1;
+    }
+  }
+
+  textarea {
+    height: 10rem;
+    resize: none;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 2rem;
+    top: 2rem;
+    text-transform: uppercase;
+    img {
+      margin-right: 0.5rem;
+      width: 2rem;
+    }
+  }
+}
+
+.image {
+  width: 60%;
+  background-image: url("/assets/img/bg02.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 4rem;
+
+  @media (max-width: 56.25em) {
+    width: 100%;
+    padding: 4rem;
+  }
+
+  h2 {
+    margin-bottom: 2rem;
+    font-size: 2.3rem;
+    line-height: 3.5rem;
+    width: 60%;
+  }
+  .account__list {
+    margin-top: 5rem;
+    flex-wrap: wrap;
+    display: flex;
+    li {
+      display: flex;
+      align-items: center;
+      margin: 2rem;
+      img {
+        margin-right: 2rem;
+        width: 6rem;
+      }
+      div {
+        p {
+          font-size: 1.4rem;
+          margin-bottom: 0.5rem;
+          span {
+            font-size: 1.5rem;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}
+
+.mat-form-field {
+  // margin: 40px 0;
+  // width: 500px !important;
+}
+.mat-toolbar-single-row {
+  height: auto !important;
+  background: transparent;
+}
+.mat-toolbar-single-row button {
+  width: 200px;
+}
+.mat-form-field {
+  width: 100%;
+}
+#uploadFile {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 9;
+  opacity: 0;
+  height: 100%;
+  cursor: pointer;
+  position: absolute;
+}
+
+::ng-deep {
+  .mat-form-field-appearance-legacy .mat-form-field-label {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 1.3rem;
+  }
+
+  input.mat-input-element {
+    margin-top: 1.938em;
+    font-size: 1.4rem;
+    color: #000;
+  }
+
+  .mat-input-element {
+    caret-color: black;
+    border-bottom: 1px solid black !important;
+  }
+
+  .mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: #000;
+    display: none;
+  }
+
+  .mat-form-field-appearance-legacy .mat-form-field-underline {
+    bottom: 1.7em;
+  }
+  .mat-form-field.mat-focused .mat-form-field-label {
+    color: #71777a;
+  }
+  .mat-input-element:disabled,
+  .mat-form-field-type-mat-native-select.mat-form-field-disabled
+    .mat-form-field-infix::after {
+    color: #000;
+  }
+
+  .mat-form-field-infix.ng-tns-c115-4 {
+    display: flex;
+  }
+
+  .time {
+    position: relative;
+
+    .validity {
+      align-self: center;
+    }
+
+    input[type="number"] {
+      width: 100px;
+    }
+
+    input + span {
+      padding-right: 30px;
+    }
+
+    input:invalid + span:after {
+      position: absolute;
+      content: "✖";
+      padding-left: 5px;
+    }
+
+    input:invalid {
+      border-bottom: 2px solid red !important;
+    }
+
+    input:valid + span:after {
+      position: absolute;
+      content: "✓";
+      padding-left: 5px;
+    }
+  }
+
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+
+  .mat-radio-outer-circle {
+    border-color: #71777a;
+  }
+
+  .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: #1797d1;
+  }
+
+  .platform {
+    font-size: 1.3rem;
+    color: rgba(0, 0, 0, 0.74);
+    display: block;
+    margin-bottom: 2rem;
+  }
+
+  .toast-message {
+    font-size: 2rem;
+  }
+}
+
+.title-main {
+  font-size: 4.3rem !important;
+}
+.consulta {
+  color: #fff;
+}
+
+select {
+  padding: 0.5rem;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #000;
+}

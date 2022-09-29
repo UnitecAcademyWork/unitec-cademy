@@ -1,0 +1,53 @@
+.contact {
+  position: fixed;
+  right: 3%;
+  bottom: 5%;
+  width: 50rem;
+  display: flex;
+  justify-content: flex-end;
+  .fale {
+    height: 7rem;
+    width: 7rem;
+    align-self: flex-end;
+    margin-left: 1rem;
+    cursor: pointer;
+  }
+  z-index: 100;
+}
+
+.form__input--img {
+  z-index: 10;
+}
+
+.quickChat {
+  position: relative;
+  display: none;
+  padding: 1rem 2rem;
+  padding-bottom: 1rem;
+  padding-bottom: 0;
+  background-color: #fff;
+  box-shadow: 0rem 0.2rem 0.3rem 0.2rem rgba(113, 119, 122, 0.1);
+  border-radius: 0.4rem;
+  border: 0.1rem solid #1797d1;
+  padding-top: 4rem;
+  padding-bottom: 1rem;
+
+  &__close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+  }
+
+  textarea {
+    height: 10rem;
+    width: 35rem;
+  }
+}
+
+.is-invalid {
+  border: 0.1rem solid red;
+  color: red;
+}

@@ -1,0 +1,19 @@
+.loading_text {
+  width: 100%;
+}
+
+.funcao {
+  font-size: 1.4rem;
+
+  @media (max-width: 37.5em) {
+    font-size: 1.6rem;
+  }
+
+  li {
+    &:not(:first-child) {
+      margin-top: 1rem;
+    }
+
+    list-style-type: circle;
+  }
+}

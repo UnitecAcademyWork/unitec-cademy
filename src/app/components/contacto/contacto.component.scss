@@ -1,0 +1,27 @@
+.contact {
+  &__item {
+    margin-bottom: 1rem;
+
+    a {
+      font-size: 1.3rem;
+      color: #71777A;
+      display: inline-flex;
+
+      p {
+        margin: 0;
+        margin-left: 1rem;
+        line-height: 2rem;
+      }
+    }
+
+    img {
+      width: 2rem;
+      height: 2rem;
+      display: inline-block;
+    }
+  }
+
+  &__svg {
+    transform: translateY(-2rem) scaleX(-1);
+  }
+}

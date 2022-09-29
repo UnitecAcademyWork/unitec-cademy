@@ -1,0 +1,90 @@
+﻿/* MODAL STYLES
+-------------------------------*/
+jw-modal {
+  /* modals are hidden by default */
+  display: none;
+
+  .jw-modal {
+    /* modal container fixed across whole screen */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    /* z-index must be higher than .jw-modal-background */
+    z-index: 1000;
+
+    /* enables scrolling for tall modals */
+    overflow: auto;
+
+    .jw-modal-body {
+      border-radius: .4rem;
+      margin: 40px auto;
+      height: 60rem;
+      width: 60rem;
+      background-image: url('/assets/img/promo1.jpg');
+      @media (max-width: 56.25em) {
+        width: 90vw;
+        height: 45vh;
+        background-image: url('/assets/img/promo2.jpg');
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        transform: translate(-50%, -50%);
+      }
+      // padding: 20px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: relative;
+
+
+      /* margin exposes part of the modal background */
+      // margin: 40px;
+    }
+  }
+
+  .promo-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+  }
+
+  .promotion__close {
+    border: none;
+    outline: none;
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    background-color: transparent;
+
+    img {
+      width: 3rem;
+      cursor: pointer;
+    }
+  }
+
+  .jw-modal-background {
+    /* modal background fixed across whole screen */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    /* semi-transparent black  */
+    background-color: #000;
+    opacity: 0.75;
+
+    /* z-index must be below .jw-modal and above everything else  */
+    z-index: 900;
+  }
+}
+
+body.jw-modal-open {
+  /* body overflow is hidden to hide main scrollbar when modal window is open */
+  overflow: hidden;
+}

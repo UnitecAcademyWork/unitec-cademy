@@ -1,0 +1,210 @@
+<div class="account">
+  <img class="account__watermark" src="/assets/img/icon.png">
+  <div class="account__details">
+    <h1 class="title-1">{{user.nome+' '+user.apelido}}</h1>
+    <p class="paragraph"><strong>telefone: </strong>{{user.contacto}}</p>
+    <p class="paragraph"><strong>email:</strong> {{user.email}}</p>
+    <p class="paragraph"><strong>curso(s): {{totalCursos}}</strong></p>
+    <div [ngClass]="{'d-none': !isPago}" class="warning"><img class="warning--img" src="/assets/img/error.png" alt="">
+      Por
+      favor finalize o pagamento do
+      seu curso &nbsp; <a routerLink="/user/meus-cursos"> aqui!</a></div>
+    <div [ngClass]="{'d-none': !isPreenchido}" class="warning"><img class="warning--img" src="/assets/img/error.png"
+        alt="">
+      Por favor finalize o registo</div>
+  </div>
+
+  <div class="account__profile">
+    <ng-container *ngIf="profileUrl === ''; else withProfile">
+      <img class="account__profile--img" src="/assets/img/user.svg" alt="Profile">
+    </ng-container>
+    <ng-template #withProfile>
+      <img class="account__profile--img" src="{{profileUrl}}" alt="Profile">
+    </ng-template>
+    <button class="btn btn--upload btn--upload-profile" [disabled]='loadingProfile' type="button"
+      (click)="fileInput.click()" *ngIf="!loadingProfile; else showLoading">
+      <span>Actualizar</span>
+      <img src="/assets/img/upload.png" alt="Upload">
+      <input #fileInput (change)="onUploadProfile($event)" accept="image/*" type="file" style="display: none;">
+    </button>
+    <ng-template #showLoading>
+      <img style="min-width: 10rem; object-fit: cover;height: 5rem; margin: 1rem auto; display: block;"
+        src="/assets/img/pulse.gif" alt="">
+    </ng-template>
+  </div>
+</div>
+
+<div class="account__user">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form account__user--info">
+
+    <a class="btn editButton" (click)="editContent()" [ngClass]="{'d-none': editable}">Editar perfil</a>
+
+    <div [ngClass]="{'editable': !editable}">
+      <h2 class="title-2">Dados pessoais</h2>
+      <div class="form__group">
+        <div class="w-100">
+          <label class="form__label" for="username">Primeiro nome</label>
+          <div class="form__input--container">
+            <input class="form__input" type="text" formControlName="nome" id="username" placeholder="Primeiro nome">
+            <div class="error" *ngIf="f.nome.errors?.required && f.nome.touched">campo obrigatório</div>
+          </div>
+        </div>
+      </div>
+      <div class="form__group">
+        <div class="w-100">
+          <label class="form__label" for="ultimo_nome">Último nome</label>
+          <div class="form__input--container">
+            <input class="form__input" type="text" formControlName="apelido" id="ultimo_nome" placeholder="Último nome">
+            <div class="error" *ngIf="f.apelido.errors?.required && f.apelido.touched">campo obrigatório</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form__group">
+        <div class="w-100">
+          <label class="form__label" for="datanasc">Data de nascimento</label>
+          <div class="form__input--container">
+            <input class="form__input" type="date" formControlName="datanasc" id="datanasc"
+              placeholder="data de nascimento">
+            <div class="error" *ngIf="f.datanasc.errors?.required && f.datanasc.dirty">campo obrigatório</div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <h2 class="title-2">Outros dados</h2>
+      <div class="form__group">
+        <div class="w-100">
+          <label class="form__label" for="nacionalidade">Nacionalidade</label>
+          <div class="form__input--container">
+            <select class="form__input" formControlName="nacionalidade">
+              <option value="Moçambicana">Moçambicana</option>
+              <option value="Estrangeira">Estrangeira</option>
+            </select>
+            <div class="error" *ngIf="f.nacionalidade.errors?.required && f.nacionalidade.dirty">campo obrigatório
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form__group">
+        <div class="w-100">
+          <label class="form__label" for="bi">Nrº do documento (BI/Passaporte/Carta de condução)</label>
+          <div class="form__input--container">
+            <input class="form__input" type="text" formControlName="bi" id="bi" placeholder="nrº bilhete de Identidade">
+            <div class="error" *ngIf="f.bi.errors?.required && f.bi.dirty">campo obrigatório</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form__group">
+        <div class="w-100">
+          <label class="form__label" for="localemissao">Local de Emissão</label>
+          <div class="form__input--container">
+            <input class="form__input" type="text" formControlName="localemissao" id="localemissao"
+              placeholder="Local de emissão">
+            <div class="error" *ngIf="f.localemissao.errors?.required && f.localemissao.dirty">campo obrigatório</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form__group">
+        <div class="w-100">
+          <label class="form__label" for="dataemissao">Data de emissão</label>
+          <div class="form__input--container">
+            <input class="form__input" type="date" formControlName="dataemissao" id="dataemissao"
+              placeholder="Data de Emissão">
+            <div class="error" *ngIf="f.dataemissao.errors?.required && f.dataemissao.dirty">campo obrigatório</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form__group">
+        <div class="w-100">
+          <label class="form__label" for="datavalidade">Data de validade</label>
+          <div class="form__input--container">
+            <input class="form__input" type="date" formControlName="datavalidade" id="datavalidade"
+              placeholder="Local de emissão">
+            <div class="error" *ngIf="f.datavalidade.errors?.required && f.datavalidade.dirty">campo obrigatório</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form__group">
+        <div class="w-100">
+          <label class="form__label" for="nivelformacao">Nível de Formação</label>
+          <div class="form__input--container">
+            <select formControlName="nivelformacao" class="form__input">
+              <option>
+                10ª
+              </option>
+              <option>
+                12ª
+              </option>
+              <option>
+                Licenciatura
+              </option>
+              <option>
+                Mestrado
+              </option>
+              <option>
+                Doutoramento
+              </option>
+            </select>
+            <div class="error" *ngIf="f.nivelformacao.errors?.required && f.nivelformacao.dirty">campo obrigatório
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn--main" [disabled]="submitted">
+        <ng-container *ngIf="!submitted; else showSubmit">
+          Guardar mudanças
+        </ng-container>
+        <ng-template #showSubmit>
+          <img style="height: 1rem;width: 2rem;" src="/assets/img/pulse.gif" alt="">
+        </ng-template>
+      </button>
+
+      <button class="btn btn--white" type="button" (click)="noEdit()">Descartar mudanças</button>
+    </div>
+  </form>
+  <div class="account__user--extra">
+    <div [ngClass]="{'d-none': !showPass}">
+      <h2 class="title-2">Assistir aulas online</h2>
+      <p class="paragraph mb-2 important"><img src="/assets/img/important.png"> Use o username e a senha para fornecidos
+        abaixo para aceder ao
+        portal de Ensino unitec </p>
+
+      <div class="w-100">
+        <label class="form__label" for="bi">username</label>
+        <div class="form__input--container">
+          <input class="form__input" type="text" name="username" [(ngModel)]="moodleUsername">
+        </div>
+      </div>
+
+      <div class="w-100">
+        <label class="form__label" for="bi">senha</label>
+        <div class="form__input--container">
+          <input class="form__input" type="text" name="senha" [(ngModel)]="moodleSenha">
+        </div>
+      </div>
+
+      <a href="https://moodle.unitec.ac.mz/login" class="btn btn--upload btn--upload-profile w-100" type="button">
+        <span>Começar a aprender</span>
+        <img src="/assets/img/play.png" alt="Upload">
+      </a>
+    </div>
+
+
+    <h2 class="title-2">Documento de identificação</h2>
+    <p class="paragraph mt-4"><strong>Status: </strong> {{idStatus}} </p>
+
+    <button class="btn btn--upload btn--upload-profile w-100" type="button" (click)="fileInput.click()">
+      <span>{{nomeFoto}}</span>
+      <img src="/assets/img/upload.png" alt="Upload">
+      <input #fileInput (change)="onUpload($event)" type="file" accept="image/*" style="display: none;">
+    </button>
+  </div>
+</div>

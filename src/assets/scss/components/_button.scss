@@ -1,0 +1,174 @@
+﻿.btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  &--white {
+    border: .1rem solid $color-main;
+    border-radius: .4rem;
+    background-color: $background-white;
+    margin: 0 2rem;
+    color: $color-muted;
+    box-shadow: 0rem .2rem .3rem .2rem rgba($color-muted, 0.1);
+    padding: .7rem 3rem;
+
+    @include respond(phone) {
+      margin: 0 0.5rem;
+    }
+
+    &.english {
+      color: #fff;
+      background-color: $color-purple;
+      border: .1rem solid $background-white;
+      box-shadow: 0rem .2rem .3rem .2rem rgba($color-purple, 0.1);
+    }
+  }
+
+  &--whatsapp {
+    border: .1rem solid #25D366;
+    border-radius: .4rem;
+    background-color: $background-white;
+    margin: 0 2rem;
+    color: $color-muted;
+    box-shadow: 0rem .2rem .3rem .2rem rgba($color-muted, 0.1);
+    padding: .7rem 3rem;
+    font-size: 1.4rem;
+    display: inline-flex;
+    align-items: center;
+
+    img {
+      height: 2.5rem;
+    }
+
+    @include respond(phone) {
+      margin: 0 0.5rem;
+      padding: 1rem 3rem !important;
+      font-size: 1.9rem;
+    }
+  }
+
+  &--more {
+    display: flex;
+    align-items: center;
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+      margin-left: 1rem;
+      fill: $color-main;
+    }
+  }
+
+  &--english {
+    background-color: $color-purple;
+    border: .1rem solid $color-purple;
+    border-radius: .4rem;
+    margin: 0 2rem;
+    box-shadow: 0rem .2rem .3rem .2rem rgba($color-purple, 0.1);
+    padding: .7rem 4rem;
+    color: $background-white;
+
+    &-white {
+      background-color: transparent;
+      border: 0.1rem solid $color-purple;
+      border-radius: .4rem;
+      margin: 0 2rem;
+      box-shadow: 0rem 0.2rem 0.3rem 0.2rem rgba(229, 11, 57, 0.1);
+      padding: 0.7rem 4rem;
+      color: $color-purple;
+    }
+  }
+
+  &--main {
+    border: .1rem solid $color-main;
+    border-radius: .4rem;
+    background-color: $color-main;
+    margin: 0 2rem;
+    color: $background-white;
+    box-shadow: 0rem .2rem .3rem .2rem rgba($color-main, 0.1);
+    padding: .7rem 4rem;
+
+    &.english {
+      border: .1rem solid $background-white;
+      background-color: $background-white;
+      box-shadow: 0rem .2rem .3rem .2rem rgba($color-muted, 0.1);
+      color: $color-muted;
+    }
+  }
+
+  &--invite {
+    border: .1rem solid $color-main;
+    border-radius: .4rem;
+    background-color: $color-main;
+    color: $background-white;
+    box-shadow: 0rem .2rem 0.3rem .2rem rgba(0, 0, 0, 0.2);
+    width: 100%;
+    margin: 2rem 0;
+    // margin-bottom: 2rem;
+    padding: .7rem 4rem;
+    transition: all .1s;
+
+    &:active {
+      transform: translateY(.4rem);
+      box-shadow: 0rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  &--subscribe {
+    display: block;
+    height: 5rem;
+    border-radius: .4rem;
+    background-color: $color-main;
+    color: $background-white;
+    padding: 1.5rem 4rem;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: .4rem;
+
+    @include respond(tab-land) {
+      height: 4rem;
+      padding: 1rem 3rem;
+      letter-spacing: .3rem;
+      font-size: 1.3rem;
+    }
+  }
+
+  &--upload {
+    padding: 1rem 2rem;
+    border: .1rem solid $color-main;
+    border-radius: .4rem;
+    margin-top: 4rem;
+    background-color: $background-white;
+
+    &-profile {
+      height: 4rsem !important;
+      display: flex;
+      align-items: center;
+      margin-top: 2rem;
+
+      img {
+        width: auto !important;
+        height: 2.5rem !important;
+      }
+    }
+
+    span {
+      color: $color-muted;
+      font-size: 1.6rem;
+    }
+
+    img {
+      width: 1.7rem;
+      margin-left: 1.5rem;
+      transform: translateY(.3rem);
+    }
+  }
+
+  &--hight {
+    height: 4rem;
+
+    img {
+      height: 100%;
+    }
+  }
+}

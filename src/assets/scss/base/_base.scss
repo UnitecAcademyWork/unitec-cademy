@@ -1,0 +1,40 @@
+﻿*,
+*::before,
+*::before {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: inherit;
+  font-family: inherit;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: inherit;
+  }
+}
+
+html {
+  font-size: 62.5%;
+  font-family: inherit;
+
+  @include respond(tab-port) {
+    font-size: 55.5%;
+  }
+
+  @include respond(tab-port) {
+    font-size: 50.5%;
+  }
+
+  @include respond(phone) {
+    font-size: 45.5%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  font-family: $nunito;
+  background-color: $background-primary;
+  color: $color-muted;
+}

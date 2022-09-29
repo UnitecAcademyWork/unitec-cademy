@@ -1,0 +1,53 @@
+.register {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 4rem;
+  margin-top: 6rem;
+
+  @include respond(tab-port) {
+    margin-top: 10rem;
+  }
+
+  &__sign-up {
+    grid-column: 1 / 7;
+
+    @include respond(tab-port) {
+      grid-column: 1 / -1;
+    }
+
+    .form {
+      width: 100% !important;
+    }
+  }
+
+  & .form__details .paragraph {
+    font-size: 1.2rem;
+  }
+
+  &__welcome {
+    grid-column: 7 / -1;
+
+    @include respond(tab-port) {
+      grid-column: 1 / -1;
+      display: none;
+    }
+
+    &.register__welcome {
+      display: block;
+    }
+
+    p.paragraph {
+      margin: 8rem 0;
+
+      @include respond(tab-port) {
+        margin: 4rem 0;
+      }
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+
+  }
+}

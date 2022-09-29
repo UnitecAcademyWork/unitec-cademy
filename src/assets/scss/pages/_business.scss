@@ -1,0 +1,81 @@
+.business {
+  &__header {
+    display: flex;
+    // justify-content: space-between;
+
+    @include respond(phone) {
+      flex-direction: column-reverse;
+      margin-top: 15rem;
+    }
+
+    .paragraph {
+      margin: 3rem 0;
+    }
+
+    &--img {
+      // margin-left: 40rem;
+      position: relative;
+      left: 20rem;
+
+      @include respond(tab-land) {
+        left: 6rem;
+      }
+
+      @include respond(tab-port) {
+        left: 0;
+      }
+
+      img {
+        width: 40rem;
+        transform: translateY(-4rem)
+      }
+    }
+  }
+
+  &__body {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    @include respond(tab-port) {
+      flex-direction: column;
+    }
+
+    &--text {
+      margin-top: 5rem;
+    }
+
+    &--item {
+      font-size: 1.6rem;
+      margin-left: 1rem;
+      margin: 1.5rem 0;
+
+      img {
+        margin-right: 1rem;
+        width: 1rem;
+      }
+    }
+
+    &--content {
+      width: 50%;
+
+      @include respond(tab-port) {
+        width: 100%;
+      }
+
+      form {
+        margin-top: 0;
+        width: 100%;
+
+        input,
+        textarea {
+          padding-left: 1rem;
+        }
+
+        textarea {
+          height: 15rem;
+        }
+      }
+    }
+  }
+}

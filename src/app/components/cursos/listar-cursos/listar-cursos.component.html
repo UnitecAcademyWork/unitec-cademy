@@ -1,0 +1,249 @@
+<div class="home__english mt-3 sm-pt-4 v8">
+  <div class="home__english--details">
+    <h2 class="title-1">Unitec Academy</h2>
+    <h2 class="title-2">Gestão, Administração, Contabilidade, Construção, etc</h2>
+    <p class="paragraph">Na Unitec você aprende com especialistas que irão instruir a sua capacitação e despertar seu
+      potencial profissional e empreendedor</p>
+    <button class="btn btn--white" routerLink="/language">Inscrever-se</button>
+  </div>
+  <div class="home__english--img">
+    <img src="/assets/img/UEA-BRANCO.png" alt="Unitec Logo">
+    <!-- <img src="/assets/img/england.png" alt="Unitec Logo"> -->
+  </div>
+</div>
+
+
+<div class="listar-cursos">
+  <h2 class="title-1">Cursos</h2>
+  <div class="home__content">
+    <h2 class="title-1">Cursos</h2>
+
+    <div class="filters">
+      <div class="filters__view-mode">
+        <p>Modo de Visualização</p>
+        <svg class="svg_filter block">
+          <use xlink:href="#block">
+            <symbol viewBox="0 0 13.769 13.769">
+              <path id="block"
+                d="M4.53,3A1.531,1.531,0,0,0,3,4.53V7.59A1.531,1.531,0,0,0,4.53,9.12H7.59A1.531,1.531,0,0,0,9.12,7.59V4.53A1.531,1.531,0,0,0,7.59,3Zm7.65,0a1.531,1.531,0,0,0-1.53,1.53V7.59a1.531,1.531,0,0,0,1.53,1.53h3.06a1.531,1.531,0,0,0,1.53-1.53V4.53A1.531,1.531,0,0,0,15.239,3ZM5.295,5.295h1.53v1.53H5.295Zm8.415,0a.765.765,0,1,1-.765.765A.765.765,0,0,1,13.709,5.295ZM4.53,10.65A1.531,1.531,0,0,0,3,12.179v3.06a1.531,1.531,0,0,0,1.53,1.53H7.59a1.531,1.531,0,0,0,1.53-1.53v-3.06a1.531,1.531,0,0,0-1.53-1.53Zm7.65,0a1.531,1.531,0,0,0-1.53,1.53v3.06a1.531,1.531,0,0,0,1.53,1.53h3.06a1.531,1.531,0,0,0,1.53-1.53v-3.06a1.531,1.531,0,0,0-1.53-1.53ZM6.06,12.944a.765.765,0,1,1-.765.765A.765.765,0,0,1,6.06,12.944Zm6.885,0h1.53v1.53h-1.53Z"
+                transform="translate(-3 -3)" />
+            </symbol>
+          </use>
+        </svg>
+        <svg class="svg_filter">
+          <use xlink:href="#tiles">
+            <symbol id="tiles" viewBox="0 0 15.3 13.77">
+              <path id="icons8_tiles"
+                d="M3.53,3A1.532,1.532,0,0,0,2,4.53V7.59A1.532,1.532,0,0,0,3.53,9.12H6.59A1.532,1.532,0,0,0,8.12,7.59V4.53A1.532,1.532,0,0,0,6.59,3Zm6.12.765V5.3H17.3V3.765H9.65ZM4.3,5.3h1.53v1.53H4.3ZM9.65,6.825v1.53h5.355V6.825H9.65ZM3.53,10.65A1.532,1.532,0,0,0,2,12.18v3.06a1.532,1.532,0,0,0,1.53,1.53H6.59a1.532,1.532,0,0,0,1.53-1.53V12.18a1.532,1.532,0,0,0-1.53-1.53Zm6.12.765v1.53H17.3v-1.53H9.65Zm-4.59,1.53a.765.765,0,1,1-.765.765A.765.765,0,0,1,5.06,12.945Zm4.59,1.53V16h5.355v-1.53H9.65Z"
+                transform="translate(-2 -3)" />
+            </symbol>
+          </use>
+        </svg>
+      </div>
+      <div class="filters__order">
+        <ul class="filters__order--list">
+          <li class="filters__order--item" *ngFor="let item of enumList">
+            <a class="filters__order--link" [ngClass]="{'active': item===selected}"
+              (click)='onSelectList(item)'>{{item}}</a>
+          </li>
+        </ul>
+      </div>
+      <form [formGroup]="searchForm" (ngSubmit)="pesquisarCurso()" class="filters__search">
+        <input class="filters__search--input" formControlName="search" autocomplete="on" type="text"
+          placeholder="o que você deseja estudar">
+        <button class="filters__search--btn" (click)="pesquisarCurso() ">
+          <svg class="filteres__search--img">
+            <use xlink:href="#search">
+              <symbol viewBox="0 0 18.421 18.337">
+                <g id="search" transform="translate(-1.427 -1.486)">
+                  <path id="Path_1" data-name="Path 1"
+                    d="M36.283,36.191a.4.4,0,0,1-.586,0L29.9,30.33a5.772,5.772,0,0,0,.586-.59l5.8,5.865a.4.4,0,0,1,0,.586Z"
+                    transform="translate(-16.563 -16.495)" fill="rgba(90,100,112,0.3)" />
+                  <path id="Path_2" data-name="Path 2"
+                    d="M15.592,8.8a6.726,6.726,0,0,1-1.669,4.446,5.772,5.772,0,0,1-.586.586A6.747,6.747,0,1,1,15.592,8.8Z"
+                    transform="translate(0 0)" fill="none" stroke="rgba(113,119,122,0.3)" stroke-width="1" />
+                  <path id="Path_3" data-name="Path 3"
+                    d="M22.923,11.486a.4.4,0,0,1-.4-.4,4.9,4.9,0,0,0-4.9-4.9.414.414,0,0,1,0-.829,5.728,5.728,0,0,1,5.72,5.72.4.4,0,0,1-.416.416Z"
+                    transform="translate(-9 -1.964)" fill="rgba(90,100,112,0.3)" />
+                </g>
+              </symbol>
+            </use>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    <div class="cursos">
+      <div *ngIf="loading;else content">
+        <img class="loading" src="/assets/img/loading.gif" alt="Loading">
+      </div>
+      <ng-template #content>
+
+        <ng-container *ngIf="selected === 'Todos Cursos'">
+          <div *ngFor="let curso of cursos" class="curso">
+            <img class="curso--img" src="{{curso.Imagens[0].url}}" (click)="emitEvent(curso)"
+              routerLink='/curso/{{curso.id}}' alt="{{curso.nome}}">
+            <div class="curso--category">
+              <div class="curso--category-name {{curso.tipocurso}}">
+                <span class="curso--category-ball {{curso.tipocurso}}"></span>
+                {{curso.categoria}}
+              </div>
+              <span class="curso--category-price {{curso.tipocurso}}">{{curso.valor}} MZN</span>
+            </div>
+            <h2 class="curso--title" (click)="emitEvent(curso)" routerLink='/curso/{{curso.id}}'>{{curso.nome}}</h2>
+            <div class="curso--details">
+              <div class="curso--details-duration">
+                <img src="/assets/img/clock.svg" alt="clock">
+                {{curso.duracao}}
+              </div>
+              <div class="curso--details-label">
+                <img src="/assets/img/{{curso.tipocurso}}.svg" alt=" ">
+                {{curso.tipocurso}}
+              </div>
+            </div>
+            <div class="curso--footer">
+              <div class="curso--footer-rating">
+                <img src="/assets/img/star.svg" alt="star">
+                <img src="/assets/img/star.svg" alt="star">
+                <img src="/assets/img/star.svg" alt="star">
+                <img src="/assets/img/star.svg" alt="star">
+                <img src="/assets/img/star.svg" alt="star">
+                <!-- <span>{{curso.votos}} votos</span> -->
+              </div>
+              <div class="curso--footer-arrow {{curso.tipocurso}}" (click)="emitEvent(curso)"
+                routerLink='/curso/{{curso.id}}'>
+                <img src="/assets/img/arrow.svg" alt="arrow">
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="selected === 'Cursos Online'">
+          <div *ngFor="let curso of cursos_on" class="curso">
+            <img class="curso--img" src="{{curso.Imagens[0].url}}" (click)="emitEvent(curso)"
+              routerLink='/curso/{{curso.id}}' alt="{{curso.nome}}">
+            <div class="curso--category">
+              <div class="curso--category-name {{curso.tipocurso}}">
+                <span class="curso--category-ball {{curso.tipocurso}}"></span>
+                {{curso.categoria}}
+              </div>
+              <span class="curso--category-price {{curso.categoria}}">{{curso.valor}} MZN</span>
+            </div>
+            <h2 class="curso--title" (click)="emitEvent(curso)" routerLink='/curso/{{curso.id}}'>{{curso.nome}}</h2>
+            <div class="curso--details">
+              <div class="curso--details-duration">
+                <img src="/assets/img/clock.svg" alt="clock">
+                {{curso.duracao}}
+              </div>
+              <div class="curso--details-label">
+                <img src="/assets/img/{{curso.tipocurso}}.svg" alt=" ">
+                {{curso.tipocurso}}
+              </div>
+            </div>
+            <div class="curso--footer">
+              <div class="curso--footer-rating">
+                <img src="/assets/img/star.svg" alt="star">
+                <img src="/assets/img/star.svg" alt="star">
+                <img src="/assets/img/star.svg" alt="star">
+                <img src="/assets/img/star.svg" alt="star">
+                <img src="/assets/img/star.svg" alt="star">
+                <span>{{curso.votos}} votos</span>
+              </div>
+              <div class="curso--footer-arrow" (click)="emitEvent(curso)" routerLink='/curso/{{curso.id}}'>
+                <img src="/assets/img/arrow.svg" alt="arrow">
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="selected === 'Cursos Presenciais'">
+          <div *ngFor="let curso of cursos_pre" class="curso">
+            <img class="curso--img" src="{{curso.Imagens[0].url}}" (click)="emitEvent(curso)"
+              routerLink='/curso/{{curso.id}}' alt="{{curso.nome}}">
+            <div class="curso--category">
+              <div class="curso--category-name {{curso.tipocurso}}">
+                <span class="curso--category-ball {{curso.tipocurso}}"></span>
+                {{curso.categoria}}
+              </div>
+              <span class="curso--category-price">{{curso.valor}} MZN</span>
+            </div>
+            <h2 class="curso--title" (click)="emitEvent(curso)" routerLink='/curso/{{curso.id}}'>{{curso.nome}}</h2>
+            <div class="curso--details">
+              <div class="curso--details-duration">
+                <img src="/assets/img/clock.svg" alt="clock">
+                {{curso.duracao}}
+              </div>
+              <div class="curso--details-label">
+                <img src="/assets/img/{{curso.tipocurso}}.svg" alt=" ">
+                {{curso.tipocurso}}
+              </div>
+            </div>
+            <div class="curso--footer">
+              <div class="curso--footer-rating">
+                <img src="/assets/img/star.svg" alt="star">
+                <img src="/assets/img/star.svg" alt="star">
+                <img src="/assets/img/star.svg" alt="star">
+                <img src="/assets/img/star.svg" alt="star">
+                <img src="/assets/img/star.svg" alt="star">
+                <span>{{curso.votos}} votos</span>
+              </div>
+              <div class="curso--footer-arrow" (click)="emitEvent(curso)" routerLink='/curso/{{curso.id}}'>
+                <img src="/assets/img/arrow.svg" alt="arrow">
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="selected === 'Cursos Técnicos'">
+          <div *ngFor="let curso of cursos_ins" class="curso">
+            <img class="curso--img" src="{{curso.Imagens[0].url}}" (click)="emitEvent(curso)"
+              routerLink='/curso/{{curso.id}}' alt="{{curso.nome}}">
+            <div class="curso--category">
+              <div class="curso--category-name {{curso.tipocurso}}">
+                <span class="curso--category-ball {{curso.tipocurso}}"></span>
+                {{curso.categoria}}
+              </div>
+              <span class="curso--category-price {{curso.tipocurso}}"> {{curso.valor}} MZN</span>
+            </div>
+            <h2 class="curso--title" (click)="emitEvent(curso)" routerLink='/curso/{{curso.id}}'>{{curso.nome}}</h2>
+            <div class="curso--details">
+              <div class="curso--details-duration">
+                <img src="/assets/img/clock.svg" alt="clock">
+                {{curso.duracao}}
+              </div>
+              <div class="curso--details-label">
+                <img src="/assets/img/{{curso.tipocurso}}.svg" alt=" ">
+                {{curso.tipocurso}}
+              </div>
+            </div>
+            <div class="curso--footer">
+              <div class="curso--footer-rating">
+                <img src="/assets/img/star.svg" alt="star">
+                <img src="/assets/img/star.svg" alt="star">
+                <img src="/assets/img/star.svg" alt="star">
+                <img src="/assets/img/star.svg" alt="star">
+                <img src="/assets/img/star.svg" alt="star">
+                <span>{{curso.votos}} votos</span>
+              </div>
+              <div class="curso--footer-arrow {{curso.tipocurso}}" (click)="emitEvent(curso)"
+                routerLink='/curso/{{curso.id}}'>
+                <img src="/assets/img/arrow.svg" alt="arrow">
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="curso__categoria">
+    <h2 class="titulo-2">Categoria</h2>
+
+    <ul class="curso__categoria--list">
+      <li class="curso__categoria--item" *ngFor="let item of categoria">
+        <a class="curso__categoria--link" (click)="filter(item)">{{item}}</a>
+      </li>
+    </ul>
+
+  </div>
+</div>

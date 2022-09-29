@@ -1,0 +1,125 @@
+<div class="container">
+  <form class="form">
+
+    <h1>Explicador unitec</h1>
+    <p>Interaja com o formador em tempo real de onde estiver, quando quiser!</p>
+    <div class="form__content">
+      <mat-form-field class="full-width">
+        <mat-label>Nome completo</mat-label>
+        <input matInput disabled value="{{user.nome}} {{user.apelido}}">
+      </mat-form-field>
+
+      <table class="full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="full-width">
+              <mat-label>telemóvel</mat-label>
+              <input [value]="user.contacto" matInput>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="full-width">
+              <mat-label>Email</mat-label>
+              <input disabled [value]="user.email" matInput>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+
+      <div class="full-width">
+        <select #curso (change)="onSelect($event)">
+          <option disabled selected>Escolha disciplina</option>
+          <option *ngFor="let curso of cursos">{{curso.disciplina}}</option>
+        </select>
+      </div>
+
+
+      <table class="full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="full-width time">
+              <mat-label>Escolha hora</mat-label>
+              <input matInput name="horario" [(ngModel)]="horas" type="datetime-local">
+              <!-- <span class="validity"></span> -->
+            </mat-form-field>
+          </td>
+          <td>
+            <input type="file" class="file-input" (change)="onFileSelected($event)" accept="image/*" #fileUpload>
+            <div class="file-upload">
+              <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
+                <mat-icon>attach_file</mat-icon>
+              </button>
+
+              {{fileName || "upload do comprovativo"}}
+
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <br>
+
+      <label class="platform">Plataforma de preferência</label>
+      <mat-radio-group [(ngModel)]="plataforma" name="plataforma" aria-label="Select an option">
+        <mat-radio-button value="teams" checked>MS Teams</mat-radio-button>
+        <mat-radio-button value="google">Google Meet</mat-radio-button>
+        <mat-radio-button value="zoom">Zoom</mat-radio-button>
+        <mat-radio-button value="skype">Skype</mat-radio-button>
+      </mat-radio-group>
+
+
+      <mat-form-field class="full-width">
+        <mat-label>Duvida</mat-label>
+        <textarea name="duvida" [(ngModel)]="duvida" matInput></textarea>
+      </mat-form-field>
+
+      <button class="button" (click)="onSubmit()">Marcar consulta</button>
+    </div>
+  </form>
+  <div class="image">
+    <h2 class="title-main">Consulta online</h2>
+    <P>&nbsp;</P>
+    <p> <strong>Interaja com o formador em tempo real de onde estiver, quando quiser!</strong></p>
+    <h1 class="consulta">Cada consulta online custa 500 MZN</h1>
+    <br>
+    <br>
+    <P>&nbsp;</P>
+    <P></P>
+    <p>1. Escolha a disciplina</p>
+    <p>2. Escolha a hora para aula particular, por favor certifique-se que a hora escolhida está no intervalo das 08h -
+      19h</p>
+    <p>3. Faça upload do comprovativo do depósito (contas listadas abaixo)</p>
+    <p>4. Escolha a sua plataforma de preferência</p>
+    <p>5. Descreva a sua dúvida detalhadamente</p>
+    <br>
+    <p>Somente disciplinas confirmadas estarão disponíveis</p>
+    <p>Cada sessão, tem a duração máxima de 45 minutos, só pode ter uma aula por cada depósito</p>
+
+    <ul class="account__list">
+      <li>
+        <img src="/assets/img/bci.svg" alt="bci">
+        <div>
+          <p>Conta: <span>15565105110001</span></p>
+          <p>NIB: <span>0008 0000 5565105110195</span></p>
+          <p>Titular: Universal Connection works, LDA, BCI</p>
+        </div>
+      </li>
+      <li>
+        <img src="/assets/img/BIM-01.png" alt="millenniumbim">
+        <div>
+          <p>Conta: <span>352576668</span></p>
+          <p>Titular: Universal Connection works, LDA Millennium BIM</p>
+        </div>
+      </li>
+      <li>
+        <img src="/assets/img/mpesa.jpg" alt="mpesa">
+        <div>
+          <p><span>*150#</span> Opção 1: transferir dinheiro</p>
+          <p>Opção 3: para banco</p>
+          <p>Opção 3: Millennium Bim</p>
+          <p>Opção 2: Para número de conta: <span>352576668</span></p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

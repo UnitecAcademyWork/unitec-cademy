@@ -1,0 +1,55 @@
+.testimonial {
+  padding: 2rem;
+  width: 35rem;
+  background-color: $background-white;
+
+  @include respond(tab-port) {
+    width: 40rem;
+  }
+
+  @include respond(phone) {
+    width: 90%;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    &--img {
+      border-radius: 50%;
+      width: 5rem;
+      height: 5rem;
+      background-color: #71777A;
+      display: flex;
+      margin-right: 1rem;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    p {
+      color: #DF6873;
+    }
+  }
+
+  p.paragraph {
+    font-style: italic;
+  }
+}
+
+.swiper-slide {
+  // padding-left: 25rem;
+  position: relative;
+
+  @include respond(tab-port) {
+    width: max-content;
+    margin-right: 270px !important;
+  }
+
+  @include respond(phone) {
+    width: max-content;
+    margin-right: 50px !important;
+  }
+}

@@ -1,0 +1,299 @@
+﻿.text-center {
+  text-align: center;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.mb-2 {
+  margin-bottom: 2rem !important;
+}
+
+.ml-4 {
+  margin-left: 4rem;
+}
+
+.mb-8 {
+  // margin-bottom: 4rem !important;
+}
+
+.mt-15 {
+  margin-top: 15rem !important;
+
+  @include respond(phone) {
+    margin-top: 6rem !important;
+  }
+}
+
+.mt-2 {
+  margin-top: 2rem !important;
+}
+
+.rotated {
+  background: linear-gradient(-90deg, rgba(40, 161, 218, .9176470588235294), #04289e);
+  transform: translateX(-5%) rotate(-5deg);
+  width: 110%;
+  padding: 1rem 8rem;
+  margin: 10rem 0;
+
+  &.white {
+    background-color: $color-main;
+  }
+
+  @include respond(phone) {
+    margin-top: 8rem;
+    padding: 1rem 4rem;
+  }
+
+  & .home__content {
+    transform: rotate(5deg);
+  }
+}
+
+.svg_filter {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: $color-muted;
+  margin: 0 .5rem;
+  object-fit: cover;
+  cursor: pointer;
+
+  @include respond(tab-port) {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+
+  &.block {
+    fill: $color-dark;
+  }
+}
+
+.m-auto {
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+.sm-auto {
+  @include respond(phone) {
+    margin: 0 auto !important;
+  }
+}
+
+.sm-custom {
+  @include respond(phone) {
+    margin: 0 auto;
+    margin-bottom: 2rem;
+  }
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mt-3 {
+  margin-top: 3rem !important;
+}
+
+
+.w-47 {
+  width: 47%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.loading {
+  display: block;
+  margin: 0 auto;
+}
+
+.normal {
+  font-weight: normal !important;
+}
+
+.error {
+  color: rgba(red, .6);
+  font-size: 1.2rem;
+}
+
+.good {
+  color: rgba($color-main, .6);
+  font-size: 1.2rem;
+}
+
+.text-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.strong {
+  font-weight: bold;
+  color: $color-main;
+}
+
+.color-white {
+  color: $background-white !important;
+
+  span {
+    color: $background-white !important;
+  }
+}
+
+.bold {
+  font-weight: bold;
+  color: $color-dark;
+}
+
+.sm-invert {
+  @include respond(phone) {
+    flex-direction: column-reverse !important;
+
+    img {
+      position: relative;
+      top: 1rem;
+    }
+  }
+}
+
+
+.triangle {
+  width: 0;
+  height: 0;
+}
+
+
+.triangle .triangle-top-left {
+  position: absolute;
+  right: 50rem;
+  top: -13rem;
+  border-top: 100px solid rgba(94, 114, 228, 0.2);
+  border-right: 100px solid transparent;
+}
+
+.triangle .triangle-top-right {
+  position: absolute;
+  right: 7rem;
+  top: -5rem;
+  border-top: 100px solid rgba(94, 114, 228, 0.2);
+  border-left: 100px solid transparent;
+}
+
+.triangle .triangle-bottom-left {
+  border-bottom: 100px solid rgba(94, 114, 228, 0.2);
+  border-right: 100px solid transparent;
+  position: absolute;
+  right: 41rem;
+  top: 11rem;
+}
+
+.triangle .triangle-bottom-right {
+  border-bottom: 100px solid rgba(94, 114, 228, 0.2);
+  border-left: 100px solid transparent;
+}
+
+.line {
+  &:nth-child(1) {
+    position: absolute;
+    background-color: rgba(94, 114, 228, 0.2);
+    top: 19rem;
+    height: .2rem;
+    width: 100%;
+    z-index: -1;
+    transform: rotate(-4deg);
+  }
+
+  &:nth-child(2) {
+    position: absolute;
+    background-color: rgba($color-main, 0.2);
+    top: 19rem;
+    height: .2rem;
+    width: 100%;
+    z-index: -1;
+    transform: rotate(-20deg);
+  }
+}
+
+.ml-3 {
+  margin-left: 3rem;
+}
+
+.pixel {
+  position: absolute;
+  right: 0;
+  top: -20rem;
+  width: 57rem !important;
+  z-index: -1;
+  opacity: .5;
+}
+
+.hideBig {
+  display: none;
+
+  @include respond(phone) {
+    display: inline-block;
+  }
+}
+
+.warning {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+
+  @include respond(phone) {
+    font-size: 1.7rem;
+  }
+
+  a {
+    color: yellow;
+  }
+
+  &--img {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+.hideSmall {
+  display: inline-block;
+
+  @include respond(phone) {
+    display: none;
+  }
+}
+
+
+@include respond(phone) {
+  .sm-pt-4 {
+    padding-top: 4rem;
+  }
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.v8 {
+  margin-top: 8vh;
+}
+
+.v12 {
+  margin-top: 12vh !important;
+}
+
+.mt-4 {
+  margin-top: 4rem;
+}

@@ -1,0 +1,34 @@
+﻿/*abstracts*/
+@import "abstracts/mixins";
+@import "abstracts/variable";
+/*libraries */
+@import "lib/hamburger";
+@import 'swiper/scss';
+@import '~ngx-toastr/toastr';
+/*base*/
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+/*components*/
+@import "components/button";
+@import "components/form";
+@import "components/table";
+@import "components/card";
+@import "components/partnes";
+@import "components/testimonial";
+@import "components/pricing";
+@import "components/modal";
+/*Layout*/
+@import "layout/footer";
+@import "layout/header";
+@import "layout/banner";
+@import "layout/navigation";
+@import "layout/listar-cursos";
+/*pages*/
+@import "pages/home";
+@import "pages/view";
+@import "pages/login";
+@import "pages/registo";
+@import "pages/profile";
+@import "pages/payment";
+@import "pages/business";

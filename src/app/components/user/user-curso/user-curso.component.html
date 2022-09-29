@@ -1,0 +1,103 @@
+<div class="filters v8">
+  <div class="filters__view-mode">
+    <p>Modo de Visualização</p>
+    <svg class="svg_filter block">
+      <use xlink:href="#block">
+        <symbol viewBox="0 0 13.769 13.769">
+          <path id="block"
+            d="M4.53,3A1.531,1.531,0,0,0,3,4.53V7.59A1.531,1.531,0,0,0,4.53,9.12H7.59A1.531,1.531,0,0,0,9.12,7.59V4.53A1.531,1.531,0,0,0,7.59,3Zm7.65,0a1.531,1.531,0,0,0-1.53,1.53V7.59a1.531,1.531,0,0,0,1.53,1.53h3.06a1.531,1.531,0,0,0,1.53-1.53V4.53A1.531,1.531,0,0,0,15.239,3ZM5.295,5.295h1.53v1.53H5.295Zm8.415,0a.765.765,0,1,1-.765.765A.765.765,0,0,1,13.709,5.295ZM4.53,10.65A1.531,1.531,0,0,0,3,12.179v3.06a1.531,1.531,0,0,0,1.53,1.53H7.59a1.531,1.531,0,0,0,1.53-1.53v-3.06a1.531,1.531,0,0,0-1.53-1.53Zm7.65,0a1.531,1.531,0,0,0-1.53,1.53v3.06a1.531,1.531,0,0,0,1.53,1.53h3.06a1.531,1.531,0,0,0,1.53-1.53v-3.06a1.531,1.531,0,0,0-1.53-1.53ZM6.06,12.944a.765.765,0,1,1-.765.765A.765.765,0,0,1,6.06,12.944Zm6.885,0h1.53v1.53h-1.53Z"
+            transform="translate(-3 -3)" />
+        </symbol>
+      </use>
+    </svg>
+    <svg class="svg_filter">
+      <use xlink:href="#tiles">
+        <symbol id="tiles" viewBox="0 0 15.3 13.77">
+          <path id="icons8_tiles"
+            d="M3.53,3A1.532,1.532,0,0,0,2,4.53V7.59A1.532,1.532,0,0,0,3.53,9.12H6.59A1.532,1.532,0,0,0,8.12,7.59V4.53A1.532,1.532,0,0,0,6.59,3Zm6.12.765V5.3H17.3V3.765H9.65ZM4.3,5.3h1.53v1.53H4.3ZM9.65,6.825v1.53h5.355V6.825H9.65ZM3.53,10.65A1.532,1.532,0,0,0,2,12.18v3.06a1.532,1.532,0,0,0,1.53,1.53H6.59a1.532,1.532,0,0,0,1.53-1.53V12.18a1.532,1.532,0,0,0-1.53-1.53Zm6.12.765v1.53H17.3v-1.53H9.65Zm-4.59,1.53a.765.765,0,1,1-.765.765A.765.765,0,0,1,5.06,12.945Zm4.59,1.53V16h5.355v-1.53H9.65Z"
+            transform="translate(-2 -3)" />
+        </symbol>
+      </use>
+    </svg>
+  </div>
+  <div class="filters__order">
+    <ul class="filters__order--list">
+      <li class="filters__order--item">
+        <a class="filters__order--link active">Todos cursos</a>
+      </li>
+      <li class="filters__order--item">
+        <a class="filters__order--link">Assistindo</a>
+      </li>
+      <li class="filters__order--item">
+        <a class="filters__order--link">Terminados</a>
+      </li>
+    </ul>
+  </div>
+  <div class="filters__search">
+    <input class="filters__search--input" type="text" placeholder="o que você deseja estudar">
+  </div>
+</div>
+
+<div class="cursos">
+  <div *ngIf="loading;else content">
+    <img class="loading" src="/assets/img/loading.gif" alt="Loading">
+  </div>
+
+  <ng-template #content>
+    <div class="curso" *ngFor="let curso of cursos">
+      <img class="curso--img" src="{{curso.Imagens[0].url}}" (click)="emitEvent(curso)" routerLink='/curso/{{curso.id}}'
+        alt="{{curso.nomecurso}}">
+      <div class="curso--category">
+        <div class="curso--category-name {{curso.tipocurso}}">
+          <span class="curso--category-ball {{curso.tipocurso}}"></span>
+          {{curso.tipocurso}}
+        </div>
+        <span class="curso--category-price">{{curso.estado}}</span>
+      </div>
+      <h2 class="curso--title" (click)="emitEvent(curso)" routerLink='/curso/{{curso.id}}'>{{curso.nomecurso}}</h2>
+      <p class="paragraph mb-2">Estado do pagamento: <span class="strong">{{curso.estado}}</span></p>
+      <div class="curso--details">
+        <div class="curso--details-duration">
+          <img src="/assets/img/clock.svg" alt="clock">
+          {{curso.duracao}}
+        </div>
+        <div class="curso--details-label">
+          <img src="/assets/img/{{curso.tipocurso}}.svg" alt="label">
+          {{curso.tipocurso}}
+        </div>
+      </div>
+      <div class="curso--footer">
+        <div class="curso--footer-rating">
+          <img src="/assets/img/star.svg" alt="star">
+          <img src="/assets/img/star.svg" alt="star">
+          <img src="/assets/img/star.svg" alt="star">
+          <img src="/assets/img/star.svg" alt="star">
+          <img src="/assets/img/star.svg" alt="star">
+          <span>168 votos</span>
+        </div>
+
+        <ng-container *ngIf="curso.votos === 0 && tempId !== curso.id_curso; else noVoto">
+          <div class="curso--footer-text vote" (click)="vote(curso.id_curso)">
+            <img src="/assets/img/good.svg" alt="arrow">
+            <p class="paragraph">Votar</p>
+          </div>
+        </ng-container>
+        <ng-template #noVoto>
+          <div class="curso--footer-text vote">
+            <img src="/assets/img/good2.svg" alt="arrow">
+            <p class="paragraph">Votar</p>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </ng-template>
+
+</div>
+
+<div class="home__content subscribe">
+  <h2 class="title-1 text-center">Explorar outros <span>cursos</span></h2>
+  <!-- <p class="paragraph text-center mb-2">O aprendizado é algo tão preciso que até quando ensinamos algo a alguém estamos
+    aprendendo coisas <br>
+    novas. Somente quem sabe ouvir, para aprender, tem recurso para ensinar</p> -->
+  <button class="btn btn--white m-auto" routerLink="/cursos">Todos cursos</button>
+</div>

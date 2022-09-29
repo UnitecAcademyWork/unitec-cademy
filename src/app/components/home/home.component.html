@@ -1,0 +1,290 @@
+<!-- <jw-modal id="Promotion">
+  <img class="promo-img" src="/assets/img/promo2.jpg">
+  <button class="promotion__close"><img (click)="closeModal('Promotion');" src="/assets/img/promo.png" alt=""></button>
+</jw-modal> -->
+
+<!-- <div class="header--details">
+  <h1 class="header--title"><span>Conquiste</span>seu espaço</h1>
+  <h2 class="header--2">No mercado de trabalho, com os nossos cursos profissionais</h2>
+  <form [formGroup]="searchForm" (ngSubmit)="pesquisarCurso()">
+    <input formControlName="search" class="header--input" type="text">
+    <button class="header--search" (click)="pesquisarCurso()">Pesquisar</button>
+    <ul class="header--typed">
+      <li *ngFor="let res of result" class="header--result" [routerLink]="['/cursos']"
+        [queryParams]="{pesquisar: res.nome}">{{res.nome}}</li>
+    </ul>
+  </form>
+</div> -->
+
+<div class="over">
+  <ngx-slick-carousel #slickModal="slick-carousel" class="slider-1" [config]="slideConfig">
+    <!-- <div ngxSlickItem class="header v8" style="background-image: url('/assets/img/WEB PROMOTION 02.jpg');"></div> -->
+    <div ngxSlickItem class="header v8" style="background-image: url('/assets/img/WEB PROMOTION 03.jpg');"></div>
+    <div ngxSlickItem class="header v8" style="background-image: url('/assets/img/WEB PROMOTION 04.jpg');"></div>
+  </ngx-slick-carousel>
+</div>
+<div class="home">
+  <img class="home--Subtraction" src="/assets/img/Subtraction.svg" alt="subtraction">
+  <h2 class="title-1">Porquê se inscrever <br> na <span>Unitec</span></h2>
+  <p class="paragraph">97% dos estudantes da unitec através da formação profissional obtiveram melhores oportunidades de
+    emprego, desenvolvimento de carreira e elevaram o seu valor, respondendo às exigências do mercado do trabalho.</p>
+  <div class="home--svg">
+    <h2 class="title-2">Como se inscrever</h2>
+    <video class="" controls>
+      <source src="/assets/img/UnitecInscricao.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <a href="https://wa.me/258841088884" target="_blank" class="btn btn--whatsapp mt-2 paragraph">Fale connosco <img
+        src="/assets/img/whatsapp.png" alt=""></a>
+  </div>
+  <div class="home__cards">
+    <div class="home__card">
+      <div class="home--img">
+        <img src="/assets/img/study-table.svg" alt="study">
+      </div>
+      <h3 class="home__card--title">Estude ao seu ritmo</h3>
+      <p>Tenha liberdade e faça os seus horários! Estude quando e onde quiser quantas vezes você precisar</p>
+    </div>
+    <div class="home__card">
+      <div class="home--img">
+        <img src="/assets/img/Award.svg" alt="study">
+      </div>
+      <h3 class="home__card--title">Professores Qualificados</h3>
+      <p>Faça os melhores cursos com os melhoras especialistas de sua área no conforto de sua casa.</p>
+    </div>
+    <div class="home__card">
+      <div class="home--img">
+        <img src="/assets/img/Certificate.svg" alt="study">
+      </div>
+      <h3 class="home__card--title">Certificado Profissional</h3>
+      <p>Certificado profissional válido em todo território nacional para voce turbinar o seu curriculo.</p>
+    </div>
+    <div class="home__card">
+      <div class="home--img">
+        <img src="/assets/img/Graduation.svg" alt="study">
+      </div>
+      <h3 class="home__card--title">Desenvolvimento Profissional</h3>
+      <p>Desenvolva as compentências para alcançar a sua carreira no mercado de trabalho ou no seu próprio negócio.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="home__english">
+  <div class="home__english--details">
+    <h2 class="title-1">Unitec Language <br>Center</h2>
+    <h2 class="title-2">Inglês, Francês, Mandarim, Português online</h2>
+    <p class="paragraph">Torne-se definitivamente fluente de forma pratica e rápida através do nosso método
+      definitivo e inovador</p>
+    <button class="btn btn--white" routerLink="/language">Inscrever-se</button>
+  </div>
+  <div class="home__english--img">
+    <img src="/assets/img/UEA-BRANCO.png" alt="Unitec Logo">
+    <!-- <img src="/assets/img/england.png" alt="Unitec Logo"> -->
+  </div>
+</div>
+
+<div class="home__content mb-0">
+  <h2 class="title-1">Cursos <span>Populares</span></h2>
+  <img class="home--Subtraction popular" src="/assets/img/Subtraction.svg" alt="subtraction">
+
+  <div class="cursos">
+    <div *ngIf="loading;else content">
+      <img class="loading" src="/assets/img/loading.gif" alt="Loading">
+    </div>
+
+    <ng-template #content>
+      <div *ngFor="let curso of cursos" class="curso">
+        <img class="curso--img" src="{{curso.Imagens[0].url}}" (click)="emitEvent(curso)"
+          routerLink='/curso/{{curso.id}}' alt="{{curso.nome}}">
+        <div class="curso--category">
+          <div class="curso--category-name {{curso.tipocurso}}">
+            <span class="curso--category-ball {{curso.tipocurso}}"></span>
+            {{curso.categoria}}
+          </div>
+          <span class="curso--category-price">{{curso.valor}} MZN</span>
+        </div>
+        <h2 class="curso--title" routerLink='/curso/{{curso.id}}' (click)="emitEvent(curso)">{{curso.nome}}</h2>
+        <div class="curso--details">
+          <div class="curso--details-duration">
+            <img src="/assets/img/clock.svg" alt="clock">
+            {{curso.duracao}}
+          </div>
+          <div class="curso--details-label">
+            <img src="/assets/img/{{curso.tipocurso}}.svg" alt="label">
+            {{curso.tipocurso}}
+          </div>
+        </div>
+        <div class="curso--footer">
+          <div class="curso--footer-rating">
+            <img src="/assets/img/star.svg" alt="star">
+            <img src="/assets/img/star.svg" alt="star">
+            <img src="/assets/img/star.svg" alt="star">
+            <img src="/assets/img/star.svg" alt="star">
+            <img src="/assets/img/star.svg" alt="star">
+            <span>{{curso.votos}} votos</span>
+          </div>
+          <div class="curso--footer-arrow" routerLink='/curso/{{curso.id}}' (click)="emitEvent(curso)">
+            <img src="/assets/img/arrow.svg" alt="arrow">
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+  <div class="text-end">
+    <button class="btn btn--white btn--more" routerLink='/cursos'>Ver mais cursos <svg>
+        <use xlink:href="#arrow">
+          <symbol id="arrow" viewBox="0 0 23.625 15.525">
+            <path id="Path_248" data-name="Path 248"
+              d="M12.835,18.666l5.986-7.694V31.5a.63.63,0,0,0,1.26,0V10.966l6.024,7.706a.628.628,0,0,0,.989-.775L19.911,8.742a.8.8,0,0,0-.46-.233.63.63,0,0,0-.548.239L11.833,17.9a.631.631,0,0,0,1,.769Z"
+              transform="translate(32.131 -11.703) rotate(90)" />
+          </symbol>
+        </use>
+      </svg> </button>
+  </div>
+</div>
+
+<div class="home__content mb-0">
+  <h2 class="title-1">Novos <span>cursos</span></h2>
+  <div class="cursos">
+    <div *ngIf="loading;else content2">
+      <img class="loading" src="/assets/img/loading.gif" alt="Loading">
+    </div>
+
+    <ng-template #content2>
+      <div *ngFor="let cursoN of cursosN" class="curso">
+        <img class="curso--img" src="{{cursoN.Imagens[0].url}}" (click)="emitEvent(curso)"
+          routerLink='/curso/{{cursoN.id}}' alt="{{cursoN.nome}}">
+        <div class="curso--category">
+          <div class="curso--category-name {{cursoN.tipocurso}}">
+            <span class="curso--category-ball {{cursoN.tipocurso}}"></span>
+            {{cursoN.categoria}}
+          </div>
+          <span class="curso--category-price">{{cursoN.valor}} MZN</span>
+        </div>
+        <h2 class="curso--title" routerLink='/curso/{{cursoN.id}}' (click)="emitEvent(curso)">{{cursoN.nome}}</h2>
+        <div class="curso--details">
+          <div class="curso--details-duration">
+            <img src="/assets/img/clock.svg" alt="clock">
+            {{cursoN.duracao}}
+          </div>
+          <div class="curso--details-label">
+            <img src="/assets/img/{{cursoN.tipocurso}}.svg" alt="label">
+            {{cursoN.tipocurso}}
+          </div>
+        </div>
+        <div class="curso--footer">
+          <div class="curso--footer-rating">
+            <img src="/assets/img/star.svg" alt="star">
+            <img src="/assets/img/star.svg" alt="star">
+            <img src="/assets/img/star.svg" alt="star">
+            <img src="/assets/img/star.svg" alt="star">
+            <img src="/assets/img/star.svg" alt="star">
+            <span>{{cursoN.votos}} votos</span>
+          </div>
+          <div class="curso--footer-arrow" (click)="emitEvent(curso)" routerLink='/curso/{{cursoN.id}}'>
+            <img src="/assets/img/arrow.svg" alt="arrow">
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+
+  <div class="text-end">
+    <button class="btn btn--white btn--more" routerLink='/cursos'>Todos cursos <svg>
+        <use xlink:href="#arrow">
+          <symbol id="arrow" viewBox="0 0 23.625 15.525">
+            <path id="Path_248" data-name="Path 248"
+              d="M12.835,18.666l5.986-7.694V31.5a.63.63,0,0,0,1.26,0V10.966l6.024,7.706a.628.628,0,0,0,.989-.775L19.911,8.742a.8.8,0,0,0-.46-.233.63.63,0,0,0-.548.239L11.833,17.9a.631.631,0,0,0,1,.769Z"
+              transform="translate(32.131 -11.703) rotate(90)" />
+          </symbol>
+        </use>
+      </svg> </button>
+  </div>
+</div>
+
+<div class="home__content mb-0 team">
+  <img class="home--Subtraction" src="/assets/img/Subtraction.svg" alt="subtraction">
+  <div class="home__team sm-invert">
+    <div class="home__team--details">
+      <h2 class="title-1">Faça parte da <span>nossa <br> equipe</span></h2>
+      <p class="paragraph">Assim como os alunos online, os professores online também desfrutam da flexibilidade e
+        conveniência do meio. Eles podem ensinar no conforto de suas próprias casas e não precisam estar em um local
+        específico em um horário específico para ensinar ou interagir com seus alunos.
+      </p>
+      <button class="btn btn--main" routerLink="/instrutor">Tornar-se Instrutor</button>
+    </div>
+    <img class="sm-custom" src="/assets/img/teach.png" alt="teaching">
+  </div>
+</div>
+
+<div class="overflow-hidden">
+  <div class="rotated white">
+    <div class="home__content">
+      <h2 class="title-1 text-center color-white">Instituições que <span>colaboram <br></span> connosco</h2>
+      <div class="partners white">
+        <img src="/assets/img/addpp white.png" alt="addpp">
+        <img src="/assets/img/avsi white.png" alt="avsi">
+        <img src="/assets/img/bnm white.png" alt="bnm">
+        <img src="/assets/img/municipio WHITE.png" alt="in">
+        <img src="/assets/img/terre white.png" alt="terre">
+        <img src="/assets/img/logo white.png" alt="logo">
+        <img src="/assets/img/ez.png" alt="ez-logo">
+        <img src="/assets/img/sos.png" alt="sos">
+        <img src="/assets/img/inp.png" alt="inp">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="home__content mt-15 mb-0 business">
+  <img class="pixel" src="/assets/img/pixels.png">
+  <div class="home__team sm-invert">
+    <img class="sm-auto" src="/assets/img/team.png" alt="teaching">
+    <div class="home__team--details ml-4">
+      <h2 class="title-1 mt-2">Unitec <span>Business</span></h2>
+      <p class="paragraph">Capacite sua equipe para desenvolver habilidades e eleve a produtividade da sua equipe com
+        uma formação solida para do desenvolvimento de competências.</p>
+      <button class="btn btn--main" routerLink='/unitec-business'>Solicitar capacitação!</button>
+    </div>
+  </div>
+</div>
+
+<div class="home__content subscribe">
+  <h2 class="title-1 text-center">Faça já sua <span>inscrição</span></h2>
+  <p class="paragraph text-center mb-2">O aprendizado é algo tão preciso que até quando ensinamos algo a alguém estamos
+    aprendendo coisas <br>
+    novas. Somente quem sabe ouvir, para aprender, tem recurso para ensinar</p>
+  <button class="btn btn--white m-auto">Registar</button>
+</div>
+
+<div class="home__content">
+  <h2 class="title-1">O que os nossos <span>alunos<br></span> dizem</h2>
+
+  <ngx-slick-carousel #slickModal="slick-carousel" [config]="slideConfig2">
+    <div ngxSlickItem *ngFor="let item of coment" swiperSlide>
+      <div class="testimonial">
+        <div class="testimonial__user">
+          <div class="testimonial__user--img">
+            <img src="/assets/img/male.svg" alt="user">
+          </div>
+          <p>{{item.nome}}</p>
+        </div>
+        <p class="paragraph">{{item.comentario}}</p>
+      </div>
+    </div>
+  </ngx-slick-carousel>
+  <!-- <swiper class="swiper" [slidesPerView]="3" [navigation]="true" [spaceBetween]="300">
+    <ng-template *ngFor="let item of coment" swiperSlide>
+      <div class="testimonial">
+        <div class="testimonial__user">
+          <div class="testimonial__user--img">
+            <img src="/assets/img/male.svg" alt="user">
+          </div>
+          <p>{{item.nome}}</p>
+        </div>
+        <p class="paragraph">{{item.comentario}}</p>
+      </div>
+    </ng-template>
+  </swiper> -->
+</div>

@@ -1,0 +1,85 @@
+<div id="showed_h30" class="home__content mb-0">
+  <h2 class="title-2 text-center">{{curso.nome}}</h2>
+  <p class="paragraph text-center">{{curso.valor}} MZN</p>
+</div>
+
+<div class="home__content home__form english__content">
+  <form>
+    <div class="form__select">
+      <label class="paragraph">Horário</label>
+      <select (change)='onOptionsSelected()' [(ngModel)]="h30" name="h30">
+        <option *ngFor="let item of h30_start" [value]="item">{{item}}</option>
+      </select>
+    </div>
+    <div class="timetable">
+      <div class="timetable--week">
+        <input type="radio" id="test1" disabled [checked]='!h30_check'>
+        <label for="test1">Segunda-feira</label>
+      </div>
+      <div class="timetable--time">
+        <input [(ngModel)]="start" name="start" type="text" disabled>
+        -
+        <input [(ngModel)]="end" name="end" type="text" disabled>
+      </div>
+    </div>
+    <div class="timetable">
+      <div class="timetable--week">
+        <input type="radio" id="test1" disabled [checked]='h30_check'>
+        <label for="test1">Terça-feira</label>
+      </div>
+      <div class="timetable--time">
+        <input [(ngModel)]="start" name="start" type="text" disabled>
+        -
+        <input [(ngModel)]="end" name="end" type="text" disabled>
+      </div>
+    </div>
+    <div class="timetable">
+      <div class="timetable--week">
+        <input type="radio" id="test1" disabled [checked]='!h30_check'>
+        <label for="test1">Quarta-feira</label>
+      </div>
+      <div class="timetable--time">
+        <input [(ngModel)]="start" name="start" type="text" disabled>
+        -
+        <input [(ngModel)]="end" name="end" type="text" disabled>
+      </div>
+    </div>
+    <div class="timetable">
+      <div class="timetable--week">
+        <input type="radio" id="test2" disabled [checked]='h30_check'>
+        <label for="test2">Quinta-feira</label>
+      </div>
+      <div class="timetable--time">
+        <input [(ngModel)]="start" name="start" type="text" disabled>
+        -
+        <input [(ngModel)]="end" name="end" type="text" disabled>
+      </div>
+    </div>
+    <div class="timetable">
+      <div class="timetable--week">
+        <input type="radio" id="test1" disabled [checked]='!h30_check'>
+        <label for="test1">Sexta-feira</label>
+      </div>
+      <div class="timetable--time">
+        <input [(ngModel)]="start" name="start" type="text" disabled>
+        -
+        <input [(ngModel)]="end" name="end" type="text" disabled>
+      </div>
+    </div>
+    <div class="timetable">
+      <div class="timetable--week">
+        <input type="radio" id="test3" disabled [checked]='h30_check'>
+        <label for="test3">Sábado</label>
+      </div>
+      <div class="timetable--time">
+        <input [(ngModel)]="start" name="start" type="text" disabled>
+        -
+        <input [(ngModel)]="end" name="end" type="text" disabled>
+      </div>
+    </div>
+    <div class="d-flex">
+      <button class="btn btn--english-white horario" routerLink="/english">Voltar</button>
+      <button class="btn btn--english horario" (click)="signUp()" >Inscrever-se</button>
+    </div>
+    </form>
+</div>

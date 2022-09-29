@@ -1,0 +1,171 @@
+.invite {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 2rem;
+
+  @media (max-width: 56.25em) {
+    flex-direction: column-reverse;
+  }
+
+  &__banner {
+    background-color: #1797d1;
+    height: 35rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem;
+
+    @media (max-width: 56.25em) {
+      position: relative;
+
+      img {
+        position: absolute;
+        right: 0;
+        opacity: 0.2;
+      }
+    }
+  }
+
+  &__text {
+    width: 50%;
+
+    @media (max-width: 56.25em) {
+      width: 100%;
+    }
+  }
+
+  &__table,
+  &__content {
+    position: relative;
+    top: -12rem;
+    background-color: #fff;
+    border-radius: 0.4rem;
+    box-shadow: 0rem 0rem 2rem rgba(#000, 0.1);
+    padding: 2rem;
+  }
+
+  &__table {
+    width: 67%;
+    overflow-y: auto;
+
+    @media (max-width: 56.25em) {
+      width: 100%;
+    }
+
+    table {
+      width: 100%;
+      font-size: 1.3rem;
+    }
+  }
+
+  &__content {
+    width: 30%;
+    height: 34rem;
+
+    @media (max-width: 56.25em) {
+      width: 100%;
+      margin-bottom: 3rem;
+    }
+
+    &--input {
+      padding: 1.5rem 2rem;
+      border-radius: 0.4rem;
+      border: none;
+      background-color: #f1f1f1;
+      color: rgba(#71777a, 0.7);
+      outline: none;
+      width: 100%;
+    }
+
+    &--details {
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem 0;
+    }
+
+    &--number {
+      font-size: 2.5rem;
+
+      &.big {
+        font-weight: bold;
+        color: #1797d1;
+      }
+    }
+
+    &--description {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.title-1 {
+  font-weight: normal;
+  color: #fff;
+}
+
+.paragraph {
+  color: #fff;
+  opacity: 0.7;
+  margin-top: 4rem;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  // background-color: rgba(#1797D1, .4);
+  color: #1797d1;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  /* Use half of the width (120/2 = 60), to center the tooltip */
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:active .tooltiptext {
+  visibility: visible;
+}
+
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+  border-bottom: 0.1rem solid rgba(#71777a, 0.4);
+}
+
+.mat-icon-button {
+  padding: 0;
+  min-width: 0;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  line-height: 40px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.mat-button-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.Inscrito {
+  color: #1797d1;
+  font-weight: bold;
+}

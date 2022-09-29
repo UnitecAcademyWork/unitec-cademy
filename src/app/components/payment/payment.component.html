@@ -1,0 +1,130 @@
+<div class="home__content register v8">
+  <div class="register__sign-up">
+    <h2 class="title-1">Inscreva-se e comece <span>a aprender!</span></h2>
+    <form class="form" [formGroup]='paymentForm'>
+      <div class="form__group">
+        <div class="w-47">
+          <label class="form__label" for="username">Endereço de faturação</label>
+          <div class="form__input--container">
+            <select class="form__input">
+              <option value="Moçambique">Moçambique</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="form__row">
+        <input type="radio" disabled>
+        <label class="form__label" for="visa">Cartão crédito ou debito: </label>
+        <img class="payment__img" src="/assets/img/visa.svg" alt="Visa">
+        <img class="payment__img" src="/assets/img/mastercard.svg" alt="mastercard">
+      </div>
+      <div class="form__row">
+        <input type="radio" checked="true" formControlName="payment" name="payment" value="ficheiro" checked>
+        <label class="form__label" for="papel">Anexar comprovativo de pagamento: </label>
+      </div>
+      <div class="payment__file">
+        <button class="btn btn--upload" type="button" (click)="fileInput.click()">
+          <span>Carregar comprovativo</span>
+          <img src="/assets/img/upload.png" alt="Upload">
+          <input #fileInput (change)="onUpload($event)" type="file" accept=".jpg,.jpeg,.png" style="display: none;">
+        </button>
+        <span>{{imgName}}</span>
+
+        <div class="payment__file--cred">
+          <div class="payment__bank--info payment__card">
+            <img src="assets/img/bci.svg" alt="mpesa">
+            <div class="payment__bank--name">
+              <h2 class="title-2"><span class="normal">Conta: </span> 15565105110001</h2>
+              <h2 class="title-2"><span class="normal">NIB: </span> 0008 0000 5565105110195</h2>
+              <p class="paragraph">Titular: Universal Connection works, LDA</p>
+              <p class="paragrapth">BCI</p>
+            </div>
+          </div>
+
+          <div class="payment__bank--info payment__card">
+            <img src="assets/img/millenniumbim.svg" alt="mpesa">
+            <div class="payment__bank--name">
+              <h2 class="title-2"><span class="normal">Conta: </span>352576668</h2>
+              <p class="paragraph">Titular: Universal Connection works, LDA</p>
+              <p class="paragraph">Millennium BIM</p>
+            </div>
+          </div>
+
+          <div class="payment__bank--info payment__card">
+            <img src="assets/img/mpesa.jpg" alt="mpesa">
+            <div class="payment__bank--name">
+              <!-- <h2 class="title-2">M-Pesa</h2> -->
+              <h2 class="title-2">*150# <span class="normal">Opção 1 transferir dinheiro</span></h2>
+              <h2 class="title-2 normal">Opção 3 para banco</h2>
+              <h2 class="title-2 normal">Opção 3 Millennium Bim</h2>
+              <h2 class="title-2"><span class="normal">Opção 2 Para número de conta:</span> 352576668</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="register__welcome payment">
+    <h2 class="titulo-2">Detalhes do Pedido</h2>
+    <div class="payment__tag">
+      <img src="{{curso.Imagens[0].url}}" alt="curso">
+      <p class="paragraph">{{curso.nome}}</p>
+      <div class="view__price">
+        <p class="titulo-2">Preço:</p>
+        <ng-container *ngIf="discount; else without">
+          <div class="view__price--tag">
+            Antes:
+            <span class="view__price--previews">{{curso.valor}} MZN</span>
+            <h1 class="title-1"><span>{{prev}} MZN</span></h1>
+          </div>
+        </ng-container>
+        <ng-template #without>
+          <div class="view__price--tag">
+            &nbsp;
+            <span class="view__price--previews">&nbsp;</span>
+            <h1 class="title-1"><span>{{prev}} MZN</span></h1>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="payment__resumo">
+      <h2 class="titulo-2">Resumo</h2>
+      <div class="payment__resumo--list">
+        <p>Preço original: </p>
+        <p> {{curso.valor}} MZN </p>
+      </div>
+      <div *ngIf="discount" class="payment__resumo--list">
+        <p>Desconto: </p>
+        <p>-10%</p>
+      </div>
+      <div *ngIf="ownerDisc" class="payment__resumo--list">
+        <p>Desconto: </p>
+        <p>-{{discValue}}</p>
+      </div>
+    </div>
+    <div class="payment__list">
+      <p class="bold">Total: </p>
+      <p class="paragraph-big bold">{{prev}} MZN</p>
+    </div>
+
+    <!-- <form class="d-flex">
+      <div>
+        <label for="coupon">Código do desconto: </label>
+        <input type="text" [(ngModel)]="cupao" name="cupao" class="form__input">
+      </div>
+      <button class="btn btn--white" (click)="geraDesconto()">Aplicar desconto</button>
+    </form> -->
+
+    <form (ngSubmit)="onSubmit()">
+      <button class="btn btn--main btn--hight" [disabled]="submitted">
+        <ng-container *ngIf="!submitted; else showLoading">
+          Finalizar Inscrição
+        </ng-container>
+        <ng-template #showLoading>
+          <img src="/assets/img/pulse.gif" alt="">
+        </ng-template>
+      </button>
+    </form>
+  </div>
+</div>

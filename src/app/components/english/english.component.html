@@ -1,0 +1,392 @@
+<header class="header english v8">
+  <div class="overlay"></div>
+  <div class="header--details">
+    <!-- <h1 class="header--title">Unitec Language Center</h1> -->
+    <!-- <p>Aprenda connosco na prática e liga-te ao mundo</p> -->
+  </div>
+</header>
+
+<div class="language">
+  <ul class="language--list">
+    <li class="language--item" *ngFor="let item of enumList">
+      <a class="language--link" [ngClass]="{'active': item===selected}" (click)='onSelectList(item)'>{{item}}</a>
+    </li>
+  </ul>
+</div>
+
+<div class="pricing">
+  <ng-container *ngIf="selected === 'Inglês'">
+    <div *ngIf="cont!== 19;else content">
+      <img class="loading" src="/assets/img/loading.gif" alt="Loading">
+    </div>
+    <ng-template #content>
+
+      <div class="pricing__card">
+        <img class="helper" src="/assets/img/more_info.svg">
+        <div class="helper--text">
+          <h2 class="title-2 text-center">Instruções</h2>
+          <ul>
+            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias, dolor!</li>
+            <li>quo quia error ducimus, id animi ad minus doloremque commodi soluta architecto placeat?!</li>
+            <li>elit. Odio facere deserunt enim maxime quas corrupti quibusdam, soluta architecto</li>
+            <li>adipisicing elit. Molestias excepturi omnis dolor nemo Lorem, ipsum dolor !</li>
+          </ul>
+        </div>
+        <span class="pricing__card--sub catg">100% Online</span>
+        <h2 class="pricing__card--price">{{curso_46.valor}} MZN</h2>
+        <span class="pricing__card--sub mes">/nível</span>
+        <p class="pricing__card--text">{{curso_46.descricao}}</p>
+        <ul class="pricing__card--list">
+          <li class="pricing__card--item">Online</li>
+          <li class="pricing__card--item">Duração: 2 meses </li>
+          <li class="pricing__card--item">Speaking</li>
+          <li class="pricing__card--item">Reading</li>
+          <li class="pricing__card--item">Writing</li>
+        </ul>
+        <p class="pricing__card--terms">Aprenda inglês connosco do básico ao avançado</p>
+        <p class="pricing__card--terms">Teste de diagnostico apos a inscrição</p>
+        <button class="btn btn--english" (click)="matricular(curso_46)">Inscrever-se</button>
+      </div>
+
+      <div class="pricing__card">
+        <img class="helper" src="/assets/img/more_info.svg">
+        <div class="helper--text"></div>
+        <span class="pricing__card--sub catg">{{curso_56.nome}}</span>
+        <h2 class="pricing__card--price">{{curso_56.valor}} MZN</h2>
+        <span class="pricing__card--sub mes">/mês</span>
+        <p class="pricing__card--text">{{curso_56.descricao}}</p>
+        <ul class="pricing__card--list">
+          <li class="pricing__card--item">Duração: 30 min </li>
+          <li class="pricing__card--item">Speaking</li>
+          <li class="pricing__card--item">3X /Semana</li>
+        </ul>
+        <p class="pricing__card--terms">É necessário ter noções básicas</p>
+        <p class="pricing__card--terms">Teste de diagnostico apos a inscrição</p>
+        <button class="btn btn--english" (click)="h30_selected()">Escolher horário</button>
+      </div>
+
+      <div class="pricing__card">
+        <img class="helper" src="/assets/img/more_info.svg">
+        <div class="helper--text"></div>
+        <span class="pricing__card--sub catg">{{curso_57.nome}}</span>
+        <h2 class="pricing__card--price">{{curso_57.valor}} MZN</h2>
+        <span class="pricing__card--sub mes">/mês</span>
+        <p class="pricing__card--text">{{curso_57.descricao}}</p>
+        <ul class="pricing__card--list">
+          <li class="pricing__card--item">Duração: 45 min </li>
+          <li class="pricing__card--item">Speaking</li>
+          <li class="pricing__card--item">3X /Semana</li>
+        </ul>
+        <p class="pricing__card--terms">É necessário ter noções básicas</p>
+        <p class="pricing__card--terms">Teste de diagnostico apos a inscrição</p>
+        <button class="btn btn--english" (click)="h45_selected()">Escolher horário</button>
+      </div>
+
+      <div class="pricing__card">
+        <img class="helper" src="/assets/img/more_info.svg">
+        <div class="helper--text"></div>
+        <span class="pricing__card--sub catg">{{curso_58.nome}}</span>
+        <h2 class="pricing__card--price">{{curso_58.valor}} MZN</h2>
+        <span class="pricing__card--sub mes">/mês</span>
+        <p class="pricing__card--text">{{curso_58.descricao}}</p>
+        <ul class="pricing__card--list">
+          <li class="pricing__card--item">Duração: 45 min por video aula </li>
+          <li class="pricing__card--item">Speaking</li>
+          <li class="pricing__card--item">Reading</li>
+          <li class="pricing__card--item">Writing</li>
+        </ul>
+        <p class="pricing__card--terms">Não é necessário ter noções básicas</p>
+        <p class="pricing__card--terms">Teste de diagnostico apos a inscrição</p>
+        <button class="btn btn--english" (click)="h450_selected()">Escolher horário</button>
+      </div>
+      <div class="pricing__card">
+        <img class="helper" src="/assets/img/more_info.svg">
+        <div class="helper--text"></div>
+        <span class="pricing__card--sub catg">{{ingles_35.nome}}</span>
+        <h2 class="pricing__card--price">{{ingles_35.valor}} MZN</h2>
+        <span class="pricing__card--sub mes">/mês</span>
+        <p class="pricing__card--text">{{ingles_35.descricao}}</p>
+        <ul class="pricing__card--list">
+          <li class="pricing__card--item">Modalidade: Presencial </li>
+          <li class="pricing__card--item">Duração: {{ingles_35.duracao}} por nível</li>
+          <li class="pricing__card--item">Nível: 1, 2, 3, 4 e 5 </li>
+          <li class="pricing__card--item">Reading</li>
+          <li class="pricing__card--item">Speaking</li>
+          <li class="pricing__card--item">Writing</li>
+        </ul>
+        <p class="pricing__card--terms">Teste de diagnostico apos a inscrição</p>
+        <button class="btn btn--english" (click)="onSelect(ingles_35)">Inscrever-se</button>
+      </div>
+
+      <div class="pricing__card">
+        <img class="helper" src="/assets/img/more_info.svg">
+        <div class="helper--text"></div>
+        <span class="pricing__card--sub catg">{{ingles_79.nome}}</span>
+        <h2 class="pricing__card--price">{{ingles_79.valor}} MZN</h2>
+        <span class="pricing__card--sub mes">/mês</span>
+        <p class="pricing__card--text">{{ingles_79.descricao}}</p>
+        <ul class="pricing__card--list">
+          <li class="pricing__card--item">Modalidade: domiciliar </li>
+          <li class="pricing__card--item">Duração: 1:30 min por dia</li>
+          <li class="pricing__card--item">Nível: 1, 2, 3, 4 e 5 </li>
+          <li class="pricing__card--item">Reading</li>
+          <li class="pricing__card--item">Speaking</li>
+          <li class="pricing__card--item">Writing</li>
+        </ul>
+        <p class="pricing__card--terms">Teste de diagnostico apos a inscrição</p>
+        <button class="btn btn--english" (click)="onSelect(ingles_79)">Inscrever-se</button>
+      </div>
+    </ng-template>
+  </ng-container>
+
+  <ng-container *ngIf="selected === 'Francês'">
+    <div class="pricing__card">
+      <img class="helper" src="/assets/img/more_info.svg">
+      <div class="helper--text"></div>
+      <span class="pricing__card--sub catg">{{frances_64.nome}}</span>
+      <h2 class="pricing__card--price">{{frances_64.valor}} MZN</h2>
+      <span class="pricing__card--sub mes">/mês</span>
+      <p class="pricing__card--text">{{frances_64.descricao}}</p>
+      <ul class="pricing__card--list">
+        <li class="pricing__card--item">Duração: {{frances_64.duracao}} </li>
+        <li class="pricing__card--item">Modalidade: Online</li>
+      </ul>
+      <p class="pricing__card--terms">Teste de diagnostico apos a inscrição</p>
+      <button class="btn btn--english" (click)="onSelect(frances_64)">Inscrever-se</button>
+    </div>
+
+    <div class="pricing__card">
+      <img class="helper" src="/assets/img/more_info.svg">
+      <div class="helper--text"></div>
+      <span class="pricing__card--sub catg">{{frances_59.nome}}</span>
+      <h2 class="pricing__card--price">{{frances_59.valor}} MZN</h2>
+      <span class="pricing__card--sub mes">/mês</span>
+      <p class="pricing__card--text">{{frances_59.descricao}}</p>
+      <ul class="pricing__card--list">
+        <li class="pricing__card--item">Duração: {{frances_59.duracao}} </li>
+        <li class="pricing__card--item">Modalidade: Presencial</li>
+      </ul>
+      <p class="pricing__card--terms">Teste de diagnostico apos a inscrição</p>
+      <button class="btn btn--english" (click)="onSelect(frances_59)">Inscrever-se</button>
+    </div>
+
+    <div class="pricing__card">
+      <img class="helper" src="/assets/img/more_info.svg">
+      <div class="helper--text"></div>
+      <span class="pricing__card--sub catg">{{frances_82.nome}}</span>
+      <h2 class="pricing__card--price">{{frances_82.valor}} MZN</h2>
+      <span class="pricing__card--sub mes">/mês</span>
+      <p class="pricing__card--text">{{frances_82.descricao}}</p>
+      <ul class="pricing__card--list">
+        <li class="pricing__card--item">Duração: {{frances_82.duracao}} </li>
+        <li class="pricing__card--item">Modalidade: Presencial</li>
+      </ul>
+      <p class="pricing__card--terms">Teste de diagnostico apos a inscrição</p>
+      <button class="btn btn--english" (click)="onSelect(frances_82)">Inscrever-se</button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="selected === 'Mandarim'">
+    <div class="pricing__card">
+      <img class="helper" src="/assets/img/more_info.svg">
+      <div class="helper--text"></div>
+      <span class="pricing__card--sub catg">{{mandarim_63.nome}}</span>
+      <h2 class="pricing__card--price">{{mandarim_63.valor}} MZN</h2>
+      <span class="pricing__card--sub mes">/mês</span>
+      <p class="pricing__card--text">{{mandarim_63.descricao}}</p>
+      <ul class="pricing__card--list">
+        <li class="pricing__card--item">Duração: {{mandarim_63.duracao}} </li>
+        <li class="pricing__card--item">Modalidade: Online</li>
+      </ul>
+      <!-- <p class="pricing__card--terms">É necessário ter noções básicas</p> -->
+      <p class="pricing__card--terms">Teste de diagnostico apos a inscrição</p>
+      <button class="btn btn--english" (click)="onSelect(mandarim_63)">Inscrever-se</button>
+    </div>
+
+    <div class="pricing__card">
+      <img class="helper" src="/assets/img/more_info.svg">
+      <div class="helper--text"></div>
+      <span class="pricing__card--sub catg">{{mandarim_60.nome}}</span>
+      <h2 class="pricing__card--price">{{mandarim_60.valor}} MZN</h2>
+      <span class="pricing__card--sub mes">/mês</span>
+      <p class="pricing__card--text">{{mandarim_60.descricao}}</p>
+      <ul class="pricing__card--list">
+        <li class="pricing__card--item">Duração: {{mandarim_60.duracao}} </li>
+        <li class="pricing__card--item">Modalidade: Presencial</li>
+      </ul>
+      <!-- <p class="pricing__card--terms">É necessário ter noções básicas</p> -->
+      <p class="pricing__card--terms">Teste de diagnostico apos a inscrição</p>
+      <button class="btn btn--english" (click)="onSelect(mandarim_60)">Inscrever-se</button>
+    </div>
+
+    <div class="pricing__card">
+      <img class="helper" src="/assets/img/more_info.svg">
+      <div class="helper--text"></div>
+      <span class="pricing__card--sub catg">{{mandarim_83.nome}}</span>
+      <h2 class="pricing__card--price">{{mandarim_83.valor}} MZN</h2>
+      <span class="pricing__card--sub mes">/mês</span>
+      <p class="pricing__card--text">{{mandarim_83.descricao}}</p>
+      <ul class="pricing__card--list">
+        <li class="pricing__card--item">Duração: {{mandarim_83.duracao}} </li>
+        <li class="pricing__card--item">Modalidade: Presencial</li>
+      </ul>
+      <!-- <p class="pricing__card--terms">É necessário ter noções básicas</p> -->
+      <p class="pricing__card--terms">Teste de diagnostico apos a inscrição</p>
+      <button class="btn btn--english" (click)="onSelect(mandarim_83)">Inscrever-se</button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="selected === 'Português'">
+    <div class="pricing__card">
+      <img class="helper" src="/assets/img/more_info.svg">
+      <div class="helper--text"></div>
+      <span class="pricing__card--sub catg">{{portugues_62.nome}}</span>
+      <h2 class="pricing__card--price">{{portugues_62.valor}} MZN</h2>
+      <span class="pricing__card--sub mes">/mês</span>
+      <p class="pricing__card--text">{{portugues_62.descricao}}</p>
+      <ul class="pricing__card--list">
+        <li class="pricing__card--item">Duração: {{portugues_62.duracao}} </li>
+        <li class="pricing__card--item">Modalidade: Online</li>
+      </ul>
+      <!-- <p class="pricing__card--terms">É necessário ter noções básicas</p> -->
+      <p class="pricing__card--terms">Teste de diagnostico apos a inscrição</p>
+      <button class="btn btn--english" (click)="onSelect(portugues_62)">Inscrever-se</button>
+    </div>
+
+    <div class="pricing__card">
+      <img class="helper" src="/assets/img/more_info.svg">
+      <div class="helper--text"></div>
+      <span class="pricing__card--sub catg">{{portugues_61.nome}}</span>
+      <h2 class="pricing__card--price">{{portugues_61.valor}} MZN</h2>
+      <span class="pricing__card--sub mes">/mês</span>
+      <p class="pricing__card--text">{{portugues_61.descricao}}</p>
+      <ul class="pricing__card--list">
+        <li class="pricing__card--item">Duração: {{portugues_61.duracao}} </li>
+        <li class="pricing__card--item">Modalidade: Presencial</li>
+      </ul>
+      <!-- <p class="pricing__card--terms">É necessário ter noções básicas</p> -->
+      <p class="pricing__card--terms">Teste de diagnostico apos a inscrição</p>
+      <button class="btn btn--english" (click)="onSelect(portugues_61)">Inscrever-se</button>
+    </div>
+
+    <div class="pricing__card">
+      <img class="helper" src="/assets/img/more_info.svg">
+      <div class="helper--text"></div>
+      <span class="pricing__card--sub catg">{{portugues_109.nome}}</span>
+      <h2 class="pricing__card--price">{{portugues_109.valor}} MZN</h2>
+      <span class="pricing__card--sub mes">/mês</span>
+      <p class="pricing__card--text">{{portugues_109.descricao}}</p>
+      <ul class="pricing__card--list">
+        <li class="pricing__card--item">Duração: {{portugues_109.duracao}} </li>
+        <li class="pricing__card--item">Modalidade: Presencial</li>
+      </ul>
+      <!-- <p class="pricing__card--terms">É necessário ter noções básicas</p> -->
+      <p class="pricing__card--terms">Teste de diagnostico apos a inscrição</p>
+      <button class="btn btn--english" (click)="onSelect(portugues_109)">Inscrever-se</button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="selected === 'Kids (Inglês)'">
+    <div class="pricing__card">
+      <img class="helper" src="/assets/img/more_info.svg">
+      <div class="helper--text"></div>
+      <span class="pricing__card--sub catg">{{kids_65.nome}}</span>
+      <h2 class="pricing__card--price">{{kids_65.valor}} MZN</h2>
+      <span class="pricing__card--sub mes">/mês</span>
+      <p class="pricing__card--text">{{kids_65.descricao}}</p>
+      <ul class="pricing__card--list">
+        <li class="pricing__card--item">Duração: {{kids_65.duracao}} </li>
+        <li class="pricing__card--item">Modalidade: Online</li>
+      </ul>
+      <!-- <p class="pricing__card--terms">É necessário ter noções básicas</p> -->
+      <p class="pricing__card--terms">Teste de diagnostico apos a inscrição</p>
+      <button class="btn btn--english" (click)="onSelect(kids_65)">Inscrever-se</button>
+    </div>
+
+    <div class="pricing__card">
+      <img class="helper" src="/assets/img/more_info.svg">
+      <div class="helper--text"></div>
+      <span class="pricing__card--sub catg">{{kids_84.nome}}</span>
+      <h2 class="pricing__card--price">{{kids_84.valor}} MZN</h2>
+      <span class="pricing__card--sub mes">/mês</span>
+      <p class="pricing__card--text">{{kids_84.descricao}}</p>
+      <ul class="pricing__card--list">
+        <li class="pricing__card--item">Duração: {{kids_84.duracao}} </li>
+        <li class="pricing__card--item">Modalidade: Presencial</li>
+      </ul>
+      <!-- <p class="pricing__card--terms">É necessário ter noções básicas</p> -->
+      <p class="pricing__card--terms">Teste de diagnostico apos a inscrição</p>
+      <button class="btn btn--english" (click)="onSelect(kids_84)">Inscrever-se</button>
+    </div>
+
+    <div class="pricing__card">
+      <img class="helper" src="/assets/img/more_info.svg">
+      <div class="helper--text"></div>
+      <span class="pricing__card--sub catg">{{kids_85.nome}}</span>
+      <h2 class="pricing__card--price">{{kids_85.valor}} MZN</h2>
+      <span class="pricing__card--sub mes">/mês</span>
+      <p class="pricing__card--text">{{kids_85.descricao}}</p>
+      <ul class="pricing__card--list">
+        <li class="pricing__card--item">Duração: {{kids_85.duracao}} </li>
+        <li class="pricing__card--item">Modalidade: Presencial</li>
+      </ul>
+      <!-- <p class="pricing__card--terms">É necessário ter noções básicas</p> -->
+      <p class="pricing__card--terms">Teste de diagnostico apos a inscrição</p>
+      <button class="btn btn--english" (click)="onSelect(kids_85)">Inscrever-se</button>
+    </div>
+  </ng-container>
+</div>
+
+
+<div class="home home--price">
+  <img class="home--Subtraction" src="/assets/img/Subtraction.svg" alt="subtraction">
+  <div class="english">
+    <h2 class="title-1 english">Curso de linguas <span>online</span></h2>
+    <p class="paragraph">A Unitec Language Center é uma academia de linguas, como tal, contamos com todos os recursos
+      acadêmicos
+      necessários para uma formação completa: professores, pedagogos, linguistas e um cursos online exclusivo,
+      endossado por estudos de eficácia independentes.</p>
+
+    <h2 class="title-1 mt-3 english">Prepara-te para <span>novas <br> Oportunidades</span></h2>
+    <p class="paragraph">Os nossos cursos online têm a duração minima 2 meses por nível e
+      pretende
+      dotar aos formandos de conhecimentos práticos que permitam um bom desempenho na sua área profissional e acadêmica.
+    </p>
+    <p class="paragraph">Contamos com uma grande equipe de professores que o orientarão desde o primeiro dia. Este é um
+      dos nossos pontos que nos diferencia de outras propostas de formação online.</p>
+  </div>
+  <div class="home__cards">
+    <div class="home__card">
+      <div class="home--img">
+        <img src="/assets/img/talk.svg" alt="study">
+      </div>
+      <h3 class="home__card--title">Aulas de conversação</h3>
+      <p>Tenha aulas de conversação online ou gravadas para paraticar junto com professores treinados, em aulas
+        dinâmicas e praticas, tudo para aprimorara seu listening.</p>
+    </div>
+    <div class="home__card">
+      <div class="home--img">
+        <img src="/assets/img/writing.svg" alt="study">
+      </div>
+      <h3 class="home__card--title">Aperfeiçoamento da escrita</h3>
+      <p>Treine sua escrita a estruturar frases, textos e redações utilizando todos os tempos verbais e ferramentas
+        necessárias para desenvolver a gramatica.</p>
+    </div>
+    <div class="home__card">
+      <div class="home--img english">
+        <img src="/assets/img/voice.svg" alt="study">
+      </div>
+      <h3 class="home__card--title">Professor de Pronuncia, fala e vocabulário</h3>
+      <p>Com o professor de pronuncia exclusivo da Unitec, você falara de forma fluida, natural e sem medo, onde
+        você aprendera se comunicar sem dificuldades.</p>
+    </div>
+
+    <div class="home__card">
+      <div class="home--img english">
+        <img src="/assets/img/diag.svg" alt="study">
+      </div>
+      <h3 class="home__card--title">Teste de diagnostico gratis</h3>
+      <p>Faça o teste nosso de diagnostico e aprenda ao seu ritmo.</p>
+    </div>
+  </div>
+</div>

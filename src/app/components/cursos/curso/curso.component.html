@@ -1,0 +1,162 @@
+<div class="home__content view v12">
+  <div class="view__title">
+    <ng-container *ngIf="!loading; else hideText">
+      <h2 class="title-1">{{curso.nome}}</h2>
+      <span class="title-sub">Categoria: <span>{{curso.categoria}}</span></span>
+      <span class="title-sub ml-3">Duração: <span>{{curso.duracao}}</span></span>
+      <span class="title-sub ml-3">Regime: <span class="capitalize">{{curso.tipocurso}}</span></span>
+    </ng-container>
+    <ng-template #hideText>
+      <img class="loading_text" src="/assets/img/loading_text.gif" alt="Loadign">
+    </ng-template>
+  </div>
+  <img class="view__img" *ngIf="!loading;else hideImg" src="{{curso.Imagens[0].url}}" alt="{{curso.nome}}">
+  <ng-template #hideImg>
+    <img class="view__img" src="/assets/img/loading_img.gif">
+  </ng-template>
+
+  <ul class="view__list">
+    <li class="view__item" [ngClass]="{'active': item===selected}" *ngFor="let item of enumList">
+      <a class="view__link" (click)='onSelectList(item)'>{{item}}</a>
+    </li>
+  </ul>
+  <div class="view__list--content">
+    <ng-container *ngIf="selected === 'Requisitos do Curso'">
+      <p class="paragraph" *ngFor="let req of requisitos">{{req.requisitos}}</p>
+    </ng-container>
+
+    <ng-container *ngIf="selected === 'Objectivo'">
+      <p class="paragraph" [innerHTML]="curso.objectivo"></p>
+    </ng-container>
+
+    <ng-container *ngIf="selected === 'Avaliações'">
+      <p class="paragraph">As avaliações são feitas no fim cada modulo.</p>
+      <p class="paragraph">No final do curso há um exame.</p>
+    </ng-container>
+
+    <ng-container *ngIf="selected === 'Material'">
+      <p class="paragraph">{{req}}</p>
+      <p class="paragraph">Brochuras</p>
+      <p class="paragraph">Documentos</p>
+    </ng-container>
+
+    <ng-container *ngIf="selected === 'Como funciona'">
+      <ul class="funcao">
+        <li>Este curso tem apoio do formador, que esclarecerá as suas dúvidas através de um fórum
+          de discussão, onde poderá colocar as suas questões a qualquer momento durante a
+          duração do curso.</li>
+        <li>Pode aceder às aulas a qualquer hora do dia ou da noite, bem como fins-de-semana e
+          feriados, em função da sua disponibilidade e disposição, tendo apenas a restrição de ter
+          de terminar o curso até ao último dia de formação.</li>
+        <li>As aulas são disponibilizadas na sua Área de Membro</li>
+        <li>Pode ainda interromper uma aula a qualquer momento e recomeçá-la mais tarde, podendo
+          frequentar cada aula quantas vezes desejar. </li>
+        <li>No final do curso receberá um Certificado de Formação Profissional caso realize os
+          trabalhos e os testes propostos, participe nas discussões online e tenha avaliação final
+          positiva.</li>
+      </ul>
+    </ng-container>
+  </div>
+
+  <div class="view__subscribe">
+    <ng-container *ngIf="!loading; else hideText">
+      <button class="btn btn--subscribe" (click)="matricular(curso)">Matricular-se</button>
+      <div class="view__price">
+        <p class="titulo-2">Preço:</p>
+        <ng-container *ngIf="discount || ownerDisc; else without">
+          <div class="view__price--tag">
+            Antes:
+            <span class="view__price--previews">{{curso.valor}} MZN</span>
+            <h1 class="title-1"><span>{{prev}} MZN</span></h1>
+          </div>
+        </ng-container>
+        <ng-template #without>
+          <div class="view__price--tag">
+            &nbsp;
+            <span class="view__price--previews">&nbsp;</span>
+            <h1 class="title-1"><span>{{prev}} MZN</span></h1>
+          </div>
+        </ng-template>
+      </div>
+    </ng-container>
+    <ng-template #hideText>
+      <img class="loading_text" src="/assets/img/loading_text.gif" alt="Loadign">
+    </ng-template>
+  </div>
+
+  <div class="view__about">
+    <ng-container *ngIf="!loading; else hideText">
+      <h2 class="title-2">O que você aprenderá</h2>
+      <p class="paragraph" [innerHTML]="curso.descricao"></p>
+    </ng-container>
+    <ng-template #hideText>
+      <img class="loading_text" src="/assets/img/loading_text.gif" alt="Loadign">
+    </ng-template>
+  </div>
+  <div class="view__program">
+    <h2 class="title-2">Programa</h2>
+    <ul class="view__program--list">
+      <li *ngFor="let programa of programas" class="view__program--item">
+        <div class="view__program--lesson">
+          <img src="/assets/img/lock.svg" alt="">
+          <p class="paragraph">{{programa.programa}}</p>
+          <p class="view__program--time">&nbsp;</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- <div class="home__content">
+  <h2 class="title-1 text-center">Faça parte da <span>nossa equipe</span></h2>
+  <button class="btn btn--main m-auto">Tornar-se Instrutor</button>
+</div> -->
+
+<div class="home__content">
+  <h2 class="title-1">Cursos <span>Relacionados</span></h2>
+  <div class="cursos">
+    <div *ngIf="loading2;else content">
+      <img class="loading" src="/assets/img/loading.gif" alt="Loading">
+    </div>
+
+    <ng-template #content>
+
+      <div *ngFor="let curso of cursos" class="curso">
+        <img class="curso--img" src="{{curso.Imagens[0].url}}" (click)="emitEvent(curso)"
+          routerLink='/curso/{{curso.id}}' alt="{{curso.nome}}">
+        <div class="curso--category">
+          <div class="curso--category-name {{curso.tipocurso}}">
+            <span class="curso--category-ball {{curso.tipocurso}}"></span>
+            {{curso.categoria}}
+          </div>
+          <span class="curso--category-price">{{curso.valor}} MZN</span>
+        </div>
+        <h2 class="curso--title" routerLink='/curso/{{curso.id}}'>{{curso.nome}}</h2>
+        <div class="curso--details">
+          <div class="curso--details-duration">
+            <img src="/assets/img/clock.svg" alt="clock">
+            {{curso.duracao}}
+          </div>
+          <div class="curso--details-label">
+            <img src="/assets/img/{{curso.tipocurso}}.svg" alt=" ">
+            {{curso.tipocurso}}
+          </div>
+        </div>
+        <div class="curso--footer">
+          <div class="curso--footer-rating">
+            <img src="/assets/img/star.svg" alt="star">
+            <img src="/assets/img/star.svg" alt="star">
+            <img src="/assets/img/star.svg" alt="star">
+            <img src="/assets/img/star.svg" alt="star">
+            <img src="/assets/img/star.svg" alt="star">
+            <span>{{curso.votos}} votos</span>
+          </div>
+          <div class="curso--footer-arrow" routerLink='/curso/{{curso.id}}'>
+            <img src="/assets/img/arrow.svg" alt="arrow">
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>
