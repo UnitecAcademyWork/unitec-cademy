@@ -18,10 +18,8 @@ export class EnglishComponent implements OnInit, OnDestroy {
   private curso_56: Curso;
   private curso_57: Curso;
   private curso_58: Curso;
-  private mandarim_63: Curso;
   private mandarim_60: Curso;
   private mandarim_83: Curso;
-  private portugues_62: Curso;
   private portugues_61: Curso;
   private portugues_109: Curso;
   private frances_64: Curso;
@@ -29,7 +27,6 @@ export class EnglishComponent implements OnInit, OnDestroy {
   private frances_82: Curso;
   private ingles_79: Curso;
   private kids_66: Curso;
-  private kids_65: Curso;
   private kids_85: Curso;
   private kids_84: Curso;
   private subscription: Subscription[] = [];
@@ -42,7 +39,7 @@ export class EnglishComponent implements OnInit, OnDestroy {
     private cursosService: CursosService,
     private authenticationService: AuthenticationService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.selected = this.enumList[0];
@@ -84,17 +81,6 @@ export class EnglishComponent implements OnInit, OnDestroy {
     );
     this.subscription.push(
       this.cursosService
-        .getCurso(63)
-        .pipe(first())
-        .subscribe({
-          next: (data) => {
-            this.mandarim_63 = data;
-            this.cont++;
-          },
-        })
-    );
-    this.subscription.push(
-      this.cursosService
         .getCurso(60)
         .pipe(first())
         .subscribe({
@@ -106,19 +92,7 @@ export class EnglishComponent implements OnInit, OnDestroy {
     );
     this.subscription.push(
       this.cursosService
-        .getCurso(65)
-        .pipe(first())
-        .subscribe({
-          next: (data) => {
-            this.kids_65 = data;
-            this.cont++;
-          },
-        })
-    );
-    this.subscription.push(
-      this.cursosService
-        .getCurso(66)
-        .pipe(first())
+        .getCurso(66).pipe(first())
         .subscribe({
           next: (data) => {
             this.kids_66 = data;
@@ -133,17 +107,6 @@ export class EnglishComponent implements OnInit, OnDestroy {
         .subscribe({
           next: (data) => {
             this.portugues_61 = data;
-            this.cont++;
-          },
-        })
-    );
-    this.subscription.push(
-      this.cursosService
-        .getCurso(62)
-        .pipe(first())
-        .subscribe({
-          next: (data) => {
-            this.portugues_62 = data;
             this.cont++;
           },
         })
@@ -273,20 +236,4 @@ export class EnglishComponent implements OnInit, OnDestroy {
   onSelectList(item: any) {
     this.selected = item;
   }
-
-  // contents = ""; // model used for textarea
-  // addBulletText(event) {
-  //   var keycode = (event.keyCode ? event.keyCode : event.which);
-  //   if (keycode == '13') {
-  //     this.contents += '• '
-  //   }
-
-  //   if (this.contents.substr(this.contents.length - 1) == '\n') {
-  //     this.contents = this.contents.substring(0, this.contents.length - 1);
-  //   }
-  // }
-
-  // mytextOnFocus() {
-  //   this.contents += '• ';
-  // }
 }

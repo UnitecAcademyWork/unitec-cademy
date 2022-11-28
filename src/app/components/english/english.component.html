@@ -16,7 +16,7 @@
 
 <div class="pricing">
   <ng-container *ngIf="selected === 'Inglês'">
-    <div *ngIf="cont!== 19;else content">
+    <div *ngIf="cont!== 16;else content">
       <img class="loading" src="/assets/img/loading.gif" alt="Loading">
     </div>
     <ng-template #content>
@@ -190,22 +190,6 @@
     <div class="pricing__card">
       <img class="helper" src="/assets/img/more_info.svg">
       <div class="helper--text"></div>
-      <span class="pricing__card--sub catg">{{mandarim_63.nome}}</span>
-      <h2 class="pricing__card--price">{{mandarim_63.valor}} MZN</h2>
-      <span class="pricing__card--sub mes">/mês</span>
-      <p class="pricing__card--text">{{mandarim_63.descricao}}</p>
-      <ul class="pricing__card--list">
-        <li class="pricing__card--item">Duração: {{mandarim_63.duracao}} </li>
-        <li class="pricing__card--item">Modalidade: Online</li>
-      </ul>
-      <!-- <p class="pricing__card--terms">É necessário ter noções básicas</p> -->
-      <p class="pricing__card--terms">Teste de diagnostico apos a inscrição</p>
-      <button class="btn btn--english" (click)="onSelect(mandarim_63)">Inscrever-se</button>
-    </div>
-
-    <div class="pricing__card">
-      <img class="helper" src="/assets/img/more_info.svg">
-      <div class="helper--text"></div>
       <span class="pricing__card--sub catg">{{mandarim_60.nome}}</span>
       <h2 class="pricing__card--price">{{mandarim_60.valor}} MZN</h2>
       <span class="pricing__card--sub mes">/mês</span>
@@ -240,22 +224,6 @@
     <div class="pricing__card">
       <img class="helper" src="/assets/img/more_info.svg">
       <div class="helper--text"></div>
-      <span class="pricing__card--sub catg">{{portugues_62.nome}}</span>
-      <h2 class="pricing__card--price">{{portugues_62.valor}} MZN</h2>
-      <span class="pricing__card--sub mes">/mês</span>
-      <p class="pricing__card--text">{{portugues_62.descricao}}</p>
-      <ul class="pricing__card--list">
-        <li class="pricing__card--item">Duração: {{portugues_62.duracao}} </li>
-        <li class="pricing__card--item">Modalidade: Online</li>
-      </ul>
-      <!-- <p class="pricing__card--terms">É necessário ter noções básicas</p> -->
-      <p class="pricing__card--terms">Teste de diagnostico apos a inscrição</p>
-      <button class="btn btn--english" (click)="onSelect(portugues_62)">Inscrever-se</button>
-    </div>
-
-    <div class="pricing__card">
-      <img class="helper" src="/assets/img/more_info.svg">
-      <div class="helper--text"></div>
       <span class="pricing__card--sub catg">{{portugues_61.nome}}</span>
       <h2 class="pricing__card--price">{{portugues_61.valor}} MZN</h2>
       <span class="pricing__card--sub mes">/mês</span>
@@ -287,22 +255,6 @@
   </ng-container>
 
   <ng-container *ngIf="selected === 'Kids (Inglês)'">
-    <div class="pricing__card">
-      <img class="helper" src="/assets/img/more_info.svg">
-      <div class="helper--text"></div>
-      <span class="pricing__card--sub catg">{{kids_65.nome}}</span>
-      <h2 class="pricing__card--price">{{kids_65.valor}} MZN</h2>
-      <span class="pricing__card--sub mes">/mês</span>
-      <p class="pricing__card--text">{{kids_65.descricao}}</p>
-      <ul class="pricing__card--list">
-        <li class="pricing__card--item">Duração: {{kids_65.duracao}} </li>
-        <li class="pricing__card--item">Modalidade: Online</li>
-      </ul>
-      <!-- <p class="pricing__card--terms">É necessário ter noções básicas</p> -->
-      <p class="pricing__card--terms">Teste de diagnostico apos a inscrição</p>
-      <button class="btn btn--english" (click)="onSelect(kids_65)">Inscrever-se</button>
-    </div>
-
     <div class="pricing__card">
       <img class="helper" src="/assets/img/more_info.svg">
       <div class="helper--text"></div>
